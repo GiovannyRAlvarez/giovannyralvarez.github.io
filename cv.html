@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giovanny Alvarez - CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /*
+         ========================================
+         Global Styles & Resets
+         ========================================
+        */
+        :root {
+            --text-primary: #2c3e50;
+            --text-secondary: #555;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --accent-color: #1e5f8b;
+            --border-color: #e5e7eb;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: var(--bg-secondary);
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'EB Garamond', serif;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #1a237e;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2.5rem 1.5rem;
+        }
+
+        /*
+         ========================================
+         Navigation Bar (Header)
+         ========================================
+        */
+        .main-nav {
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2.5vw;
+            height: 64px;
+        }
+
+        .site-title-left {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.3em;
+            font-weight: bold;
+            letter-spacing: 0.13em;
+            color: var(--text-primary);
+            text-transform: uppercase;
+        }
+
+        .nav-links-right {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 2.2em;
+        }
+
+        .nav-links-right a {
+            font-family: 'EB Garamond', serif;
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        /*
+         ========================================
+         CV Section - NEW STYLISH DESIGN
+         ========================================
+        */
+        .cv-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .cv-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: var(--accent-color);
+            color: var(--bg-primary);
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-size: 1rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .download-button:hover {
+            background-color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .download-button svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            margin-right: 0.75rem;
+        }
+
+        .cv-section {
+            margin-bottom: 3.5rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .section-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            color: var(--accent-color);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2.5rem;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            background: var(--bg-primary);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-color);
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 1.5rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            border: 3px solid var(--bg-secondary);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item h4 {
+            font-size: 1.2rem;
+            margin: 0 0 0.25rem 0;
+        }
+
+        .timeline-item h5 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin: 0 0 0.75rem 0;
+        }
+
+        .timeline-item p, .timeline-item ul {
+            margin: 0;
+            padding-left: 1.25rem;
+        }
+        
+        .timeline-item p.publication, .timeline-item p.no-padding {
+             padding-left: 0;
+        }
+
+        .timeline-item ul {
+            list-style-type: disc;
+        }
+        
+        .timeline-item em {
+            color: var(--text-primary);
+        }
+        
+        .publication-subsection {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        /*
+         ========================================
+         Footer
+         ========================================
+        */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--bg-primary);
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="main-nav">
+        <a href="index.html" class="site-title-left">GIOVANNY ALVAREZ</a>
+        <ul class="nav-links-right">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="cv.html">CV</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <div class="container">
+            <div class="cv-header">
+                <h1>Curriculum Vitae</h1>
+                <a href="CV Giovanny Alvarez.pdf" class="download-button">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    Download PDF
+                </a>
+            </div>
+
+            <!-- Education -->
+            <section class="cv-section">
+                <div class="section-header">
+                    <svg class="section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    <h2 class="section-title">Education</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>University of North Carolina at Chapel Hill</h4>
+                        <h5>Ph.D., Public Policy (Candidate) | Expected May 2026</h5>
+                        <ul>
+                            <li><em>Dissertation:</em> “Interpersonal Violence in Holistic and Partial Post-Conflict Contexts: Essays on Transitional Violence Incentives and Responses after Intrastate Wars”</li>
+                            <li>International Studies Association Dissertation Completion Fellow</li>
+                            <li>Saperstein Research Fellow, Wayne State University</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>University of North Carolina at Chapel Hill</h4>
+                        <h5>M.A., Global Studies | May 2021</h5>
+                        <ul><li>Rotary Peace Fellow, The Rotary Foundation</li></ul>
+                    </div>
+                     <div class="timeline-item">
+                        <h4>Universidad Nacional de Colombia</h4>
+                        <h5>M.A., Political Studies | May 2008</h5>
+                        <ul><li>Outstanding Graduate Student Fellowship</li></ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Universidad Nacional de Colombia</h4>
+                        <h5>B.A., Political Science | June 2003</h5>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Research -->
+            <section class="cv-section">
+                <div class="section-header">
+                    <svg class="section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                    <h2 class="section-title">Research</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h5 class="publication-subsection">Peer-Reviewed Publications</h5>
+                        <p class="publication">“Building Partner Capacity: US Aid to Security Sector Actors” (with Patricia Sullivan and Nathan Marx). <em>Journal of Conflict Resolution</em>. October, 2024.</p>
+                        <p class="publication">“Rediscovering Europe? The Aid Dilemmas During and After the Plan Colombia” (with Francisco Gutierrez Sanin). <em>Conflict, Security & Development</em> 8, no. 1 (2008): 71-107.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5 class="publication-subsection">Under Review</h5>
+                       <p class="publication">“Targeting Peace: Civilian Risk and the Unintended Consequences of Counternarcotics Reform in Colombia”. <em>Studies in Conflict & Terrorism</em>.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5 class="publication-subsection">In Progress</h5>
+                        <ul>
+                            <li>“A Dual-Arena: The Divergent Effects of Transitional Justice on Post-Conflict Violence.”</li>
+                            <li>“Peace at the Center, Neglect at the Margins: A Synthetic Control Analysis of International Aid in Post-Agreement Colombia.”</li>
+                            <li>“The Violent Spillover of Peace: Unintended Cross-Border Consequences of Peace Agreements in Colombia and Central America.”</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Honors -->
+            <section class="cv-section">
+                <div class="section-header">
+                     <svg class="section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+                    <h2 class="section-title">Fellowships, Grants, & Honors</h2>
+                </div>
+                 <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>External</h4>
+                        <ul>
+                            <li>Dissertation Completion Fellowship, The International Studies Association, 2025</li>
+                            <li>Research Fellowship, Saperstein Symposium, Wayne State University, 2025</li>
+                            <li>Rotary Peace Fellowship, The Rotary Foundation, 2019-2021</li>
+                            <li>Peace and Security Top-Level Global Seminar, SIDA, 2009</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Internal</h4>
+                        <ul>
+                            <li>The Philip and Jane Hammer Fund for Public Policy, 2025</li>
+                            <li>Mellon Conference Travel Award, Institute for the Study of the Americas, 2024</li>
+                            <li>Stephens Family Fund for Graduate Student Excellence, 2022</li>
+                            <li>Professor Award for Outstanding Performance, Universidad Santo Tomas, 2009</li>
+                            <li>Outstanding Graduate Student Fellowship, Universidad Nacional de Colombia, 2005-2007</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Add other sections similarly -->
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Giovanny Alvarez. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Update footer year dynamically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>

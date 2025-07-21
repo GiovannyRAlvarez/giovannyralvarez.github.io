@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giovanny Alvarez - Personal Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /*
+         ========================================
+         Global Styles & Resets
+         ========================================
+        */
+        :root {
+            --text-primary: #2c3e50;
+            --text-secondary: #555;
+            --bg-primary: #ffffff;
+            --bg-secondary: #eef2fb;
+            --accent-color: #1e5f8b;
+            --border-color: #e5e7eb;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: var(--bg-secondary);
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'EB Garamond', serif;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #1a237e;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 4rem 1.5rem;
+        }
+
+        /*
+         ========================================
+         Navigation Bar (Header)
+         ========================================
+        */
+        .main-nav {
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2.5vw;
+            height: 64px;
+        }
+
+        .site-title-left {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.3em;
+            font-weight: bold;
+            letter-spacing: 0.13em;
+            color: var(--text-primary);
+            text-transform: uppercase;
+        }
+
+        .nav-links-right {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 2.2em;
+        }
+
+        .nav-links-right a {
+            font-family: 'EB Garamond', serif;
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        /*
+         ========================================
+         Hero / About Me Section
+         ========================================
+        */
+        #home {
+            background-color: var(--bg-primary);
+            border-radius: 0.75rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .home-container {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .about-content {
+                grid-template-columns: auto 1fr;
+                gap: 3rem;
+            }
+        }
+        
+        .profile-pic-container {
+            text-align: center;
+        }
+        
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid var(--bg-primary);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            object-fit: cover;
+        }
+
+        .intro-text h1 {
+            font-size: 3rem;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .intro-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .intro-text em {
+            font-style: italic;
+            color: var(--text-primary);
+        }
+        
+        .fieldwork-gallery {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .fieldwork-gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .gallery-caption {
+            grid-column: 1 / -1; /* Make caption span all columns */
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 1rem;
+            font-style: italic;
+            text-align: center;
+        }
+
+        /*
+         ========================================
+         Timeline Section
+         ========================================
+        */
+        #timeline {
+            text-align: center;
+            background-color: var(--bg-primary);
+            border-radius: 0.75rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .section-heading {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-container {
+            position: relative;
+            width: 100%;
+            margin: 50px auto;
+            padding: 30px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 5%;
+            right: 5%;
+            top: 50%;
+            height: 4px;
+            background-color: var(--border-color);
+            border-radius: 2px;
+            margin-top: -2px;
+        }
+
+        .milestones-wrapper {
+            display: flex;
+            justify-content: space-around;
+            position: relative;
+        }
+
+        .milestone {
+            position: relative;
+            width: calc(100% / 6 - 20px);
+            min-width: 150px;
+            padding: 10px;
+            margin: 0 10px;
+        }
+
+        .milestone-content {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .milestone-content::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent-color);
+            border: 3px solid var(--bg-primary);
+            border-radius: 50%;
+        }
+
+        .milestone:nth-child(odd) .milestone-content {
+            margin-bottom: 50px;
+        }
+        .milestone:nth-child(odd) .milestone-content::before {
+            bottom: -36px;
+        }
+
+        .milestone:nth-child(even) .milestone-content {
+            margin-top: 50px;
+        }
+         .milestone:nth-child(even) .milestone-content::before {
+            top: -36px;
+        }
+
+        .milestone-year {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .milestone-title {
+            font-weight: bold;
+            font-size: 1em;
+            margin-bottom: 5px;
+        }
+
+        .milestone-description {
+            font-size: 0.9em;
+        }
+
+        /*
+         ========================================
+         Footer
+         ========================================
+        */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: transparent;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="main-nav">
+        <a href="#home" class="site-title-left">GIOVANNY ALVAREZ</a>
+        <ul class="nav-links-right">
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+      <div class="container home-container">
+          <div class="about-content">
+              <div class="profile-pic-container">
+                <img src="new6.png" alt="Giovanny Alvarez" class="profile-pic">
+              </div>
+              <div class="intro-text">
+                <h1>About Me</h1>
+                <p>
+                 Welcome! I am a Ph.D. Candidate in Public Policy at the University of North Carolina at Chapel Hill. My academic research is driven by over 17 years of on-the-ground experience in peacebuilding, often in active war zones throughout my native Colombia.
+                </p>
+                <p>
+                  Working directly with victims of conflict and participating in three peace negotiations forged in me a profound commitment to protecting human dignity, independent of any political or economic affiliation. This drive to understand and prevent violence in post-conflict settings led me back to academia as a Rotary Peace Fellow. This path builds on a long career with local NGOs, the Colombian Ombudsman's Office, USAID, and the United Nations Development Programme (UNDP).
+                </p>
+                <p>
+                  My research centers on peace consolidation, transitional justice, and international security, with a regional expertise in Latin America. My work has been published in the <em>Journal of Conflict Resolution</em> and <em>Conflict, Security & Development</em>.
+                </p>
+              </div>
+          </div>
+          <div class="fieldwork-gallery">
+              <img src="research.jpg" alt="A walkway in a stilt community in Tumaco, Colombia" class="gallery-image">
+              <img src="Tumaco.jpg" alt="Local fishermen in Tumaco, Colombia" class="gallery-image">
+              <img src="francisco.jpg" alt="A rural community in Francisco Pizarro, Colombia" class="gallery-image">
+              <p class="gallery-caption">
+                  Scenes from fieldwork in the Pacific region of Colombia. My research and teaching are dedicated to understanding and improving the conditions for those most affected by conflict.
+              </p>
+          </div>
+      </div>
+    </section>
+
+    <section id="timeline">
+        <div class="container">
+            <h2 class="section-heading">My Journey</h2>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                <div class="milestones-wrapper">
+                    <div class="milestone">
+                        <div class="milestone-content">
+                            <span class="milestone-year">2003</span>
+                            <h3 class="milestone-title">B.A. Political Science</h3>
+                            <p class="milestone-description">Universidad Nacional de Colombia</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-content">
+                            <span class="milestone-year">2004</span>
+                            <h3 class="milestone-title">Field Work Begins</h3>
+                            <p class="milestone-description">Human Rights Researcher</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-content">
+                            <span class="milestone-year">2008</span>
+                            <h3 class="milestone-title">M.A. Political Studies</h3>
+                            <p class="milestone-description">First Journal Publication</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-content">
+                            <span class="milestone-year">2014-16</span>
+                            <h3 class="milestone-title">Peace Negotiations</h3>
+                            <p class="milestone-description">UN Victims' Component Team</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-content">
+                            <span class="milestone-year">2019-21</span>
+                            <h3 class="milestone-title">Rotary Peace Fellow</h3>
+                            <p class="milestone-description">M.A. Global Studies, UNC</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-content">
+                            <span class="milestone-year">2026</span>
+                            <h3 class="milestone-title">Ph.D. Public Policy</h3>
+                            <p class="milestone-description">Expected Graduation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Giovanny Alvarez. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Update footer year dynamically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <p>Feel free to reach out if you'd like to discuss research, collaborations, or other opportunities.</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:gioralvarez@outlook.com">gioralvarez@outlook.com</a></li>
+                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/giovannyalvarez/" target="_blank">linkedin.com/in/giovannyalvarez</a></li>
+                <li><strong>GitHub:</strong> <a href="https://github.com/GiovannyRAlvarez" target="_blank">github.com/GiovannyRAlvarez</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Giovanny Alvarez. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links with hash URLs
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Update footer year dynamically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>

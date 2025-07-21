@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giovanny Alvarez - Research</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /*
+         ========================================
+         Global Styles & Resets
+         ========================================
+        */
+        :root {
+            --text-primary: #2c3e50;
+            --text-secondary: #555;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --accent-color: #1e5f8b;
+            --border-color: #e5e7eb;
+            --published-bg: #dcfce7;
+            --published-text: #166534;
+            --review-bg: #fef3c7; /* Color for 'Under Review' */
+            --review-text: #92400e;
+            --working-paper-bg: #fef9c3;
+            --working-paper-text: #854d0e;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: var(--bg-secondary);
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'EB Garamond', serif;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: text-decoration 0.2s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 4rem 1.5rem;
+        }
+        
+        /*
+         ========================================
+         Navigation Bar (Header)
+         ========================================
+        */
+        .main-nav {
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2.5vw;
+            height: 64px;
+        }
+
+        .site-title-left {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.3em;
+            font-weight: bold;
+            letter-spacing: 0.13em;
+            color: var(--text-primary);
+            text-transform: uppercase;
+        }
+
+        .nav-links-right {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 2.2em;
+        }
+
+        .nav-links-right a {
+            font-family: 'EB Garamond', serif;
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        /*
+         ========================================
+         Main Content & Card Styling
+         ========================================
+        */
+        .section-heading {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-subheading {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+        
+        .publication-card {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .publication-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .publication-content-wrapper {
+            display: flex;
+            flex-direction: column; /* Mobile-first: stacks vertically */
+            gap: 2rem;
+        }
+
+        .publication-text {
+            flex: 2; /* Takes up 2/3 of the space on wider screens */
+        }
+        
+        .publication-graph {
+            flex: 1; /* Takes up 1/3 of the space on wider screens */
+            min-width: 250px; /* Ensures graph has a minimum size */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .publication-graph img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .publication-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-title {
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 600;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        .status-published {
+            background-color: var(--published-bg);
+            color: var(--published-text);
+        }
+        
+        .status-review {
+            background-color: var(--review-bg);
+            color: var(--review-text);
+        }
+
+        .status-working-paper {
+            background-color: var(--working-paper-bg);
+            color: var(--working-paper-text);
+        }
+
+        .publication-authors {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-journal {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .publication-abstract {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        
+        .publication-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .button {
+            display: inline-flex;
+            align-items: center;
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: var(--text-primary);
+            color: var(--bg-primary);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+        }
+
+        .button:hover {
+            background-color: var(--accent-color);
+            text-decoration: none;
+            color: var(--bg-primary);
+        }
+        
+        .button svg {
+            width: 1rem;
+            height: 1rem;
+            margin-right: 0.5rem;
+        }
+        
+        /* Responsive layout for two columns on wider screens */
+        @media (min-width: 768px) {
+            .publication-content-wrapper {
+                flex-direction: row; /* Side-by-side on larger screens */
+            }
+        }
+
+        /*
+         ========================================
+         Footer
+         ========================================
+        */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--bg-primary);
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="main-nav">
+        <a href="index.html" class="site-title-left">GIOVANNY ALVAREZ</a>
+        <ul class="nav-links-right">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="cv.html">CV</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <div class="container">
+            <h2 class="section-heading">Research</h2>
+            <p class="section-subheading">My work focuses on peace consolidation, international cooperation, and local security policies in post-conflict societies.</p>
+
+            <!-- Publication Card 1 -->
+            <div class="publication-card">
+                <div class="publication-content-wrapper">
+                    <div class="publication-text">
+                        <div class="publication-header">
+                            <h3 class="publication-title">Building Partner Capacity: US Aid to Security Sector Actors</h3>
+                            <span class="publication-status status-published">Published</span>
+                        </div>
+                        <p class="publication-authors">With Patricia Sullivan & Nathan Marx</p>
+                        <p class="publication-journal">Journal of Conflict Resolution (JCR), 2024</p>
+                        <p class="publication-abstract">
+                           This article introduces the US Aid to Security Sector Actors (USASSA) dataset, the product of a collaboration between academic researchers and the nonprofit Security Assistance Monitor. In addition to providing the most comprehensive source of data on US security assistance, the USASSA dataset transforms detailed information about how security assistance funds are spent into aid and recipient typologies that can be used to conduct more sophisticated analyses of how this foreign policy tool is employed, its utility, and its limitations. Our data clearly show not only the magnitude and geographic reach of US security assistance, but also its diversity. While some security assistance is akin to humanitarian aid, other types of assistance blur the line between foreign aid and proxy warfare. We demonstrate the utility of the dataset with an exploration of whether the effects of US security assistance on human rights violations and domestic terrorism vary across types of aid.
+                        </p>
+                        <div class="publication-links">
+                            <a href="https://journals-sagepub-com.libproxy.lib.unc.edu/doi/10.1177/00220027241276156" class="button" target="_blank" rel="noopener noreferrer">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.72"></path><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.72-1.72"></path></svg>
+                                Link
+                            </a>
+                            <a href="#" class="button">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12h16M4 12l6-6m-6 6l6 6"></path></svg>
+                                PDF
+                            </a>
+                        </div>
+                    </div>
+                    <div class="publication-graph">
+                        <img src="papertricia.jpg" alt="U.S. Security Assistance Trends">
+                    </div>
+                </div>
+            </div>
+ <!-- Publication Card 2 -->
+            <div class="publication-card">
+                <div class="publication-content-wrapper">
+                    <div class="publication-text">
+                         <div class="publication-header">
+                            <h3 class="publication-title">Targeting Peace: Civilian Risk and the Unintended Consequences of Counternarcotics Reform in Colombia</h3>
+                            <span class="publication-status status-review">Under Review</span>
+                        </div>
+                        <p class="publication-authors">Alvarez, G.</p>
+                        <p class="publication-journal">Studies in Conflict & Terrorism</p>
+                        <p class="publication-abstract">
+                            Can developmental peacebuilding programs succeed amid active illicit economies? This paper investigates a critical sequencing dilemma through the lens of Colombia's post-conflict counternarcotics strategy. Following the 2016 peace accord, the state implemented a voluntary crop substitution program (PNIS) in former FARC territories where its control was not yet consolidated. I argue that this 'development-first' approach led to counterproductive security outcomes by inadvertently transferring the risk of confronting armed groups from the state onto civilian participants. Using a comparative interrupted time-series analysis of municipal-level data from 2012-2019, I find that the FARC's demobilization triggered violent competition for territorial control by successor armed groups. Crucially, homicide rates increased most severely in high-coca municipalities that were enrolled in the PNIS program, supporting the risk transfer hypothesis. This study contributes to theories of post-conflict transition by quantitatively demonstrating the dangers of implementing development initiatives without first establishing a monopoly on violence, showing how such policies can unintentionally escalate civilian risk.
+                        </p>
+                        <div class="publication-links">
+                            <a href="#" class="button">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12h16M4 12l6-6m-6 6l6 6"></path></svg>
+                                PDF
+                            </a>
+                        </div>
+                    </div>
+                  <div class="publication-graph">
+                      <img src="combinedcoca.png" alt="Comparative effects of Counternarcotics Reform on Homicide Rates">
+                  </div>
+                </div>
+            </div>
+ <!-- Publication Card 3 -->
+            <div class="publication-card">
+                 <div class="publication-content-wrapper">
+                    <div class="publication-text">
+                        <div class="publication-header">
+                            <h3 class="publication-title">A Dual-Arena: The Divergent Effects of Transitional Justice on Post-Conflict Violence</h3>
+                            <span class="publication-status status-working-paper">Working Paper</span>
+                        </div>
+                        <p class="publication-authors">Alvarez, G.</p>
+                        <p class="publication-journal">Manuscript in preparation</p>
+                        <p class="publication-abstract">
+                            This article challenges universalist views of transitional justice (TJ), arguing its effects are profoundly conditional on both the context (ongoing vs. post-conflict) and the type of violence being measured. I theorize that TJ mechanisms send contradictory signals, deterring elite-level conflict while signaling state weakness to local communities. Employing high-dimensional fixed-effects regression on data from 53 post-conflict countries (1980-2021), the analysis reveals a stark divergence. In ongoing conflicts, Truth Commissions effectively reduce large-scale conflict violence but fail to curb high interpersonal violence. After conflict, TCs become the only mechanism to significantly reduce this societal-level violence.
+                        </p>
+                        <div class="publication-links">
+                            <a href="#" class="button">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12h16M4 12l6-6m-6 6l6 6"></path></svg>
+                                Draft
+                            </a>
+                        </div>
+                    </div>
+                    <div class="publication-graph">
+                          <img src="postconflict.png" alt="Predicted Post-Conflict Violence">
+                    </div>
+                </div>
+            </div>
+            <!-- Publication Card 4 -->
+            <div class="publication-card">
+                <div class="publication-content-wrapper">
+                    <div class="publication-text">
+                         <div class="publication-header">
+                            <h3 class="publication-title">Rediscovering Europe? The aid dilemmas during and after the Plan Colombia</h3>
+                            <span class="publication-status status-published">Published</span>
+                        </div>
+                        <p class="publication-authors">With Francisco Gutiérrez Sanín  </p>
+                        <p class="publication-journal">Studies in Conflict & Terrorism</p>
+                        <p class="publication-abstract">
+                            This paper discusses a complex process of aid oriented towards taming the Colombian conflict. We show that, despite the grand declarations provided generously by all actors involved, there has been much strategic manoeuvring and inconsistency. We describe how Colombian decision makers made a transition from the intent of establishing peace as a nationalist programme to the effort of internationalising war. However, the transition interacted with—and was somewhat dampened by—the set of constraints they faced. A very important part of these constraints was related to the choice, when seeking key international partners, between the United States and Europe. Donors, at the same time, had their own objectives and constraints, and frequently promoted lines of action that were at odds with their stated objectives. At the same time, the analysis suggests that despite—and sometimes even because of—these limits some windows of opportunity for positive developments have been opened.
+                        </p>
+                        <div class="publication-links">
+                            <a href="https://www-tandfonline-com.libproxy.lib.unc.edu/doi/full/10.1080/14678800801977112"></a>
+                            
+                            <a href="#" class="button">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12h16M4 12l6-6m-6 6l6 6"></path></svg>
+                                PDF
+                            </a>
+                        </div>
+                    </div>
+                  <div class="publication-graph">
+                      <img src="plancolombia.png" alt="Comparative effects of Counternarcotics Reform on Homicide Rates">
+                  </div>
+                </div>
+            </div>
+
+           
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Giovanny Alvarez. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Update footer year dynamically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>

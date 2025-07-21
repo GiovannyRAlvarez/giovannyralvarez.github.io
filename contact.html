@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Giovanny Alvarez</title>
+  <style>
+    /* It's better to put all styles here or in an external file, rather than both. */
+    @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap');
+
+    /* --- Global Styles --- */
+    body { 
+        background: #f6faff; 
+        font-family: 'EB Garamond', Garamond, 'Times New Roman', Times, serif; 
+        margin: 0;
+        line-height: 1.6;
+    }
+
+    /* --- Navigation Bar --- */
+    /* Note: These styles should ideally be in your main style.css file for consistency */
+    .main-nav {
+        background-color: #fff;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2.5vw;
+        height: 64px;
+    }
+
+    .site-title-left {
+        font-size: 1.3em;
+        font-weight: bold;
+        letter-spacing: 0.13em;
+        color: #222;
+        text-transform: uppercase;
+    }
+
+    .nav-links-right {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        gap: 2.2em;
+    }
+    
+    .nav-links-right li a {
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+
+    /* --- Main Content --- */
+    .container { 
+        max-width: 700px; 
+        margin: 4rem auto; /* Added more top/bottom margin for spacing */
+        padding: 40px 30px; 
+        background: #fff; 
+        border-radius: 12px; 
+        box-shadow: 0 2px 12px rgba(30,40,90,0.07); 
+    }
+
+    h1 { 
+        color: #2c3e50; 
+        margin-top: 0;
+    }
+
+    p {
+        font-family: 'Source Sans Pro', sans-serif;
+        color: #555;
+    }
+
+    .contact-list {
+        list-style: none; 
+        padding: 0; 
+        margin-top: 2rem;
+    }
+
+    .contact-list li { 
+        margin-bottom: 1.2em; 
+        font-size: 1.15em; 
+    }
+
+    .contact-list strong {
+        color: #333;
+    }
+    
+    .contact-list a { 
+        color: #1e5f8b; 
+        text-decoration: none;
+        font-weight: bold;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+
+    .contact-list a:hover { 
+        text-decoration: underline; 
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="main-nav">
+    <span class="site-title-left">GIOVANNY ALVAREZ</span>
+    <ul class="nav-links-right">
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="teaching.html">Teaching</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="container">
+      <h1>Contact</h1>
+      <p>Feel free to reach out if you would like to discuss research, collaborations, or other opportunities.</p>
+      
+      <ul class="contact-list">
+        <li><strong>Email:</strong> <a href="mailto:giovanny@ad.unc.edu">giovanny@ad.unc.edu</a></li>
+        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/giovannyalvarez/" target="_blank">linkedin.com/in/giovannyalvarez</a></li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/GiovannyRAlvarez" target="_blank">github.com/GiovannyRAlvarez</a></li>
+        </ul>
+    </div>
+  </main>
+
+</body>
+</html>

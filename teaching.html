@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giovanny Alvarez - Teaching</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /*
+         ========================================
+         Global Styles & Resets
+         ========================================
+        */
+        :root {
+            --text-primary: #2c3e50;
+            --text-secondary: #555;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --accent-color: #1e5f8b;
+            --border-color: #e5e7eb;
+            --instructor-bg: #dbeafe;
+            --instructor-text: #1e40af;
+            --ta-bg: #e0e7ff;
+            --ta-text: #3730a3;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: var(--bg-secondary);
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'EB Garamond', serif;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #1a237e;
+        }
+        
+        .container {
+            max-width: 1024px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2.5rem 1.5rem;
+        }
+
+        section {
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+        }
+        
+        /*
+         ========================================
+         Navigation Bar (Header)
+         ========================================
+        */
+        .main-nav {
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2.5vw;
+            height: 64px;
+        }
+
+        .site-title-left {
+            font-family: 'EB Garamond', serif;
+            font-size: 1.3em;
+            font-weight: bold;
+            letter-spacing: 0.13em;
+            color: var(--text-primary);
+            text-transform: uppercase;
+        }
+
+        .nav-links-right {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 2.2em;
+        }
+
+        .nav-links-right a {
+            font-family: 'EB Garamond', serif;
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        /*
+         ========================================
+         Main Content & Card Styling
+         ========================================
+        */
+        .hero-section {
+            text-align: center;
+            padding-bottom: 0;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-section p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .section-heading {
+            font-size: 2.25rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        /*
+         ========================================
+         Teaching Philosophy Section
+         ========================================
+        */
+        .philosophy-container {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        @media (min-width: 992px) {
+            .philosophy-container {
+                flex-direction: row;
+            }
+        }
+
+        .philosophy-text {
+            flex: 2;
+            padding-right: 2rem;
+        }
+        
+        .philosophy-text p {
+            text-align: justify;
+        }
+
+        .philosophy-points {
+            flex: 1;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            border-left: 2px solid var(--accent-color);
+            padding-left: 2rem;
+        }
+
+        .philosophy-points li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .philosophy-points li:last-child {
+            margin-bottom: 0;
+        }
+
+        .philosophy-icon {
+            color: var(--accent-color);
+            width: 2.5rem;
+            height: 2.5rem;
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+
+        .philosophy-points h3 {
+            margin: 0 0 0.25rem 0;
+            font-size: 1.2rem;
+        }
+
+        .philosophy-points p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /*
+         ========================================
+         Courses Taught Section
+         ========================================
+        */
+        .course-group {
+            margin-bottom: 3rem;
+        }
+
+        .course-group-title {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        .course-card {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            transition: all 0.3s ease;
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .course-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+        }
+
+        .course-header {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .course-title {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .course-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 600;
+            border-radius: 9999px;
+            text-transform: uppercase;
+        }
+
+        .badge-instructor {
+            background-color: var(--instructor-bg);
+            color: var(--instructor-text);
+        }
+
+        .badge-ta {
+            background-color: var(--ta-bg);
+            color: var(--ta-text);
+        }
+        
+        .course-details {
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        
+        .course-description {
+            margin-bottom: 0;
+        }
+
+        @media (min-width: 1024px) {
+            .course-header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        /*
+         ========================================
+         Footer
+         ========================================
+        */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--bg-primary);
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="main-nav">
+        <a href="index.html" class="site-title-left">GIOVANNY ALVAREZ</a>
+        <ul class="nav-links-right">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="cv.html">CV</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h1>Teaching</h1>
+                <p>
+                    Drawing from seventeen years of hands-on peacebuilding experience, my teaching philosophy centers on bridging the often vast divide between academic theory and real-world practice. In my classroom, students engage with both the foundational theories that define our discipline and the critical skills needed to evaluate how these concepts perform when confronted with the messy realities of conflict, governance, and social change. This approach ensures that learning extends beyond memorizing theoretical frameworks to developing the analytical capacity to understand when, why, and how these theories succeed or fall short in practice. By integrating field experience with rigorous academic inquiry, I aim to prepare students who can think both theoretically and practically about the complex challenges facing our world today.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="section-heading">Teaching Philosophy</h2>
+                <div class="philosophy-container">
+                    <div class="philosophy-text">
+                        <h3>My Approach</h3>
+                        <p>My teaching is fundamentally shaped by my experience as both a practitioner and a scholar. Having worked in active conflict zones and participated in peace negotiations, I am driven by the conviction that political science must be a tool for understanding and improving the human condition. My passion for these subjects, born from direct experience, aims to foster deep engagement and understanding. Ultimately, my goal is for students to leave my classroom with a new lens for viewing the world—as one student kindly noted, to have their "eyes opened to the subject of global policy issues." This transformation from passive observer to engaged, critical thinker is the most rewarding outcome of my teaching.</p>
+                    </div>
+                    <ul class="philosophy-points">
+                        <li>
+                            <svg class="philosophy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                            <div>
+                                <h3>Theory & Practice</h3>
+                                <p>Anchoring abstract concepts in concrete case studies and my professional experience.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <svg class="philosophy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.874 15.126c.526.526 1.167.942 1.884 1.224M19.126 15.126c-.526.526-1.167.942-1.884 1.224M12 21a9 9 0 110-18 9 9 0 010 18zM12 9a3 3 0 100-6 3 3 0 000 6z"></path></svg>
+                            <div>
+                                <h3>Critical Inquiry</h3>
+                                <p>Using sequential questioning to guide students to discover insights and weigh ethical trade-offs.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <svg class="philosophy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 19a7 7 0 100-14 7 7 0 000 14z"></path></svg>
+                            <div>
+                                <h3>AI for Analysis</h3>
+                                <p>Harnessing AI as a tool to enhance, not replace, the nuanced work of human analysis.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="section-heading">Courses Taught</h2>
+                
+                <div class="course-group">
+                    <h3 class="course-group-title">At UNC-Chapel Hill</h3>
+                    <div class="card course-card">
+                        <div class="course-header">
+                            <h3 class="course-title">Global Policy Issues</h3>
+                            <div class="course-badges">
+                                <span class="badge badge-ta">Teaching Fellow/TA</span>
+                            </div>
+                        </div>
+                        <p class="course-details">Spring 2024, Spring 2025</p>
+                        <p class="course-description">Surveys major global challenges, including trade, poverty and development, migration, international security, energy transition and climate change.</p>
+                    </div>
+                    <div class="card course-card">
+                        <div class="course-header">
+                            <h3 class="course-title">Data Literacy</h3>
+                            <div class="course-badges">
+                                <span class="badge badge-ta">Teaching Assistant</span>
+                            </div>
+                        </div>
+                        <p class="course-details">Fall 2025</p>
+                        <p class="course-description">An introduction to the fundamental skills of finding, evaluating, and analyzing data.</p>
+                    </div>
+                    <div class="card course-card">
+                        <div class="course-header">
+                            <h3 class="course-title">Making Public Policy</h3>
+                            <div class="course-badges">
+                                <span class="badge badge-ta">Teaching Assistant</span>
+                            </div>
+                        </div>
+                        <p class="course-details">Spring 2022</p>
+                        <p class="course-description">Explores theories, actors, institutions, and processes involved in the formulation and implementation of public policy.</p>
+                    </div>
+                </div>
+
+                <div class="course-group">
+                    <h3 class="course-group-title">As Instructor of Record (Colombia)</h3>
+                    <div class="card course-card">
+                        <div class="course-header">
+                            <h3 class="course-title">Humanitarian Action</h3>
+                            <div class="course-badges">
+                                <span class="badge badge-instructor">Instructor</span>
+                            </div>
+                        </div>
+                        <p class="course-details">Universidad Nacional de Colombia | 2011-2016</p>
+                        <p class="course-description">Examines the principles, practices, and challenges of humanitarian intervention in complex emergencies.</p>
+                    </div>
+                    <div class="card course-card">
+                        <div class="course-header">
+                            <h3 class="course-title">Law Enforcement Policies and the Rule of Law</h3>
+                            <div class="course-badges">
+                                <span class="badge badge-instructor">Instructor</span>
+                            </div>
+                        </div>
+                        <p class="course-details">Escuela de Estudios Superiores de Policía | 2009-2011</p>
+                        <p class="course-description">A detailed analysis of the evolution of law enforcement policies and the rule of law, mainly comparing North American and South American cases.</p>
+                    </div>
+                    <div class="card course-card">
+                        <div class="course-header">
+                            <h3 class="course-title">Political Theory and Law</h3>
+                            <div class="course-badges">
+                                <span class="badge badge-instructor">Instructor</span>
+                            </div>
+                        </div>
+                        <p class="course-details">Universidad Santo Tomas | 2009-2010</p>
+                        <p class="course-description">Introduces foundational concepts in political and law theory, connecting thoerical basis to practical legal frameworks.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Giovanny Alvarez. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Update footer year dynamically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
