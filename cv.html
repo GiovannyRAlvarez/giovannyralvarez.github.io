@@ -24,12 +24,13 @@
          ========================================
         */
         :root {
-            --text-primary: #2c3e50;
-            --text-secondary: #555;
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
             --bg-primary: #ffffff;
-            --bg-secondary: #f8f9fa;
-            --accent-color: #1e5f8b;
-            --border-color: #e5e7eb;
+            --bg-secondary: #f7fafc;
+            --accent-color: #2b6cb0;
+            --accent-hover: #1a365d;
+            --border-color: #e2e8f0;
         }
 
         *, *::before, *::after {
@@ -42,6 +43,7 @@
             color: var(--text-secondary);
             margin: 0;
             line-height: 1.7;
+            font-size: 1.05rem;
         }
 
         h1, h2, h3, h4, h5 {
@@ -57,7 +59,7 @@
         }
 
         a:hover {
-            color: #1a237e;
+            color: var(--accent-hover);
         }
         
         .container {
@@ -81,15 +83,16 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 2.5vw;
-            height: 64px;
+            padding: 0 4vw;
+            height: 70px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
 
         .site-title-left {
             font-family: 'EB Garamond', serif;
-            font-size: 1.3em;
+            font-size: 1.4em;
             font-weight: bold;
-            letter-spacing: 0.13em;
+            letter-spacing: 0.1em;
             color: var(--text-primary);
             text-transform: uppercase;
         }
@@ -100,29 +103,50 @@
             padding: 0;
             display: flex;
             align-items: center;
-            gap: 2.2em;
+            gap: 2.5em;
         }
 
         .nav-links-right a {
-            font-family: 'EB Garamond', serif;
+            font-family: 'Source Sans Pro', sans-serif;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links-right a:hover {
             color: var(--accent-color);
-            font-weight: bold;
-            font-size: 1.1em;
+        }
+
+        /* Highlight for dataset link */
+        .nav-links-right .dataset-link {
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+        }
+
+        .nav-links-right .dataset-link:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-primary);
         }
         
         /*
          ========================================
-         CV Section - NEW STYLISH DESIGN
+         CV Section Styles
          ========================================
         */
         .cv-header {
             text-align: center;
             margin-bottom: 3rem;
+            margin-top: 1rem;
         }
 
         .cv-header h1 {
             font-size: 3rem;
             margin-bottom: 1.5rem;
+            margin-top: 0;
         }
         
         .download-button {
@@ -139,7 +163,8 @@
         }
 
         .download-button:hover {
-            background-color: var(--text-primary);
+            background-color: var(--accent-hover);
+            color: var(--bg-primary);
             text-decoration: none;
         }
 
@@ -161,14 +186,15 @@
         }
         
         .section-icon {
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 2.2rem;
+            height: 2.2rem;
             color: var(--accent-color);
         }
 
         .section-title {
             font-size: 2rem;
             margin: 0;
+            color: var(--text-primary);
         }
 
         .timeline {
@@ -184,6 +210,7 @@
             padding: 1.5rem;
             border-radius: 0.5rem;
             border: 1px solid var(--border-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
         }
         
         .timeline-item:last-child {
@@ -195,8 +222,8 @@
             position: absolute;
             left: -2.5rem;
             top: 1.5rem;
-            width: 1rem;
-            height: 1rem;
+            width: 1.1rem;
+            height: 1.1rem;
             border-radius: 50%;
             background-color: var(--accent-color);
             border: 3px solid var(--bg-secondary);
@@ -206,12 +233,13 @@
         .timeline-item h4 {
             font-size: 1.2rem;
             margin: 0 0 0.25rem 0;
+            color: var(--text-primary);
         }
 
         .timeline-item h5 {
             font-size: 1rem;
             font-weight: 600;
-            color: var(--text-secondary);
+            color: var(--accent-color);
             margin: 0 0 0.75rem 0;
         }
 
@@ -222,6 +250,11 @@
         
         .timeline-item p.publication, .timeline-item p.no-padding {
              padding-left: 0;
+             margin-bottom: 1rem;
+        }
+
+        .timeline-item p.publication:last-child {
+             margin-bottom: 0;
         }
 
         .timeline-item ul {
@@ -230,6 +263,7 @@
         
         .timeline-item em {
             color: var(--text-primary);
+            font-style: italic;
         }
         
         .publication-subsection {
@@ -239,6 +273,10 @@
             margin-top: 1.5rem;
             margin-bottom: 1rem;
             font-style: italic;
+        }
+
+        .publication-subsection:first-child {
+            margin-top: 0;
         }
 
         /*
@@ -252,6 +290,7 @@
             background-color: var(--bg-primary);
             border-top: 1px solid var(--border-color);
             font-size: 0.9em;
+            color: var(--text-secondary);
         }
     </style>
 </head>
@@ -260,10 +299,10 @@
     <nav class="main-nav">
         <a href="index.html" class="site-title-left">GIOVANNY ALVAREZ</a>
         <ul class="nav-links-right">
-            <li><a href="index.html">Home</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="teaching.html">Teaching</a></li>
             <li><a href="cv.html">CV</a></li>
+            <li><a href="https://giovannyralvarez.github.io/USASSA/index.html" target="_blank" class="dataset-link">USASSA Dataset</a></li>
         </ul>
     </nav>
     
@@ -277,6 +316,20 @@
                 </a>
             </div>
 
+            <!-- Academic Appointments -->
+            <section class="cv-section">
+                <div class="section-header">
+                    <svg class="section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <h2 class="section-title">Academic Appointments</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>University of St. Thomas</h4>
+                        <h5>Visiting Assistant Professor, Department of International Studies & Modern Languages | Aug 2026 – Present</h5>
+                    </div>
+                </div>
+            </section>
+
             <!-- Education -->
             <section class="cv-section">
                 <div class="section-header">
@@ -286,16 +339,11 @@
                 <div class="timeline">
                     <div class="timeline-item">
                         <h4>University of North Carolina at Chapel Hill</h4>
-                        <h5>Ph.D., Public Policy (Candidate) | Expected May 2026</h5>
+                        <h5>Ph.D., Public Policy | May 2026</h5>
                         <ul>
-                       <li>
-  <em>Dissertation:</em> “The Price of Elite Peace: A Dual-Arena Theory of Post-Conflict Violence”
-  <br>
-  <p> <em>Dissertation Completion Fellow,</em> International Studies Association (ISA)</p>
-  <p><em>Saperstein Research Fellow,</em> Wayne State University</p>
-</li>
-
-
+                            <li><em>Dissertation:</em> “Pacifying Elites, Endangering Communities: A Dual-Arena Theory of Post-Conflict Violence”</li>
+                            <li><em>Dissertation Completion Fellow,</em> International Studies Association (ISA)</li>
+                            <li><em>Saperstein Research Fellow,</em> Wayne State University</li>
                         </ul>
                     </div>
                     <div class="timeline-item">
@@ -324,23 +372,18 @@
                 <div class="timeline">
                     <div class="timeline-item">
                         <h5 class="publication-subsection">Peer-Reviewed Publications</h5>
-                        <p class="publication">“The Economic Spoiler’s Incentive: How Consent-Based Counternarcotics Policy Fueled Violence in Post-
-Conflict Colombia”.<em>Studies in Conflict & Terrorism</em>. November, 2025.</p>
+                        <p class="publication">“The Economic Spoiler’s Incentive: How Consent-Based Counternarcotics Policy Fueled Violence in Post-Conflict Colombia”. <em>Studies in Conflict & Terrorism</em>. November, 2025.</p>
                         <p class="publication">“Building Partner Capacity: US Aid to Security Sector Actors” (with Patricia Sullivan and Nathan Marx). <em>Journal of Conflict Resolution</em>. Volume 69, no. 6 (2025): 1033–1058.</p>
                         <p class="publication">“Rediscovering Europe? The Aid Dilemmas During and After the Plan Colombia” (with Francisco Gutierrez Sanin). <em>Conflict, Security & Development</em>. Volume 8, no. 1 (2008): 71-107.</p>
-
-                        
                     </div>
                     <div class="timeline-item">
                         <h5 class="publication-subsection">Under Review</h5>
-                       <p class="publication">“Pacifying Elites, Endangering Communities: A Dual-Arena Theory of Post-Conflict Violence”.</p>
+                        <p class="publication">“Pacifying Elites, Endangering Communities: A Dual-Arena Theory of Post-Conflict Violence”.</p>
                     </div>
                     <div class="timeline-item">
                         <h5 class="publication-subsection">In Progress</h5>
                         <ul>
-                            <li>“Dual Arenas of Violence: Elite Bargaining, Local Insecurity, and the Conditions for Comprehensive Peace in Ongoing Civil Wars”</li>
                             <li>“Peace at the Center, Neglect at the Margins: A Synthetic Control Analysis of International Aid in Post-Agreement Colombia.”</li>
-                            <li>“The Violent Spillover of Peace: Unintended Cross-Border Consequences of Peace Agreements in Colombia and Central America.”</li>
                         </ul>
                     </div>
                 </div>
@@ -368,7 +411,7 @@ Conflict Colombia”.<em>Studies in Conflict & Terrorism</em>. November, 2025.</
                         <ul>
                             <li>The Philip and Jane Hammer Fund for Public Policy, 2025</li>
                             <li>Experiential Learning Award, 2025</li>
-<li>The Graduate Student Transportation Grant, 2025</li>
+                            <li>The Graduate Student Transportation Grant, 2025</li>
                             <li>Mellon Conference Travel Award, Institute for the Study of the Americas, 2024</li>
                             <li>Stephens Family Fund for Graduate Student Excellence, 2022</li>
                             <li>Professor Award for Outstanding Performance, Universidad Santo Tomas, 2009</li>
@@ -378,13 +421,11 @@ Conflict Colombia”.<em>Studies in Conflict & Terrorism</em>. November, 2025.</
                 </div>
             </section>
 
-            <!-- Add other sections similarly -->
-
         </div>
     </main>
 
     <footer>
-        <div class="container">
+        <div class="container" style="padding: 0;">
             <p>&copy; <span id="currentYear"></span> Giovanny Alvarez. All rights reserved.</p>
         </div>
     </footer>
