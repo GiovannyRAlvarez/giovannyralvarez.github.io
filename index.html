@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9XEZPS82JB"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9XEZPS82JB"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -154,7 +155,7 @@
 
         /*
          ========================================
-         Hero / About Me Section
+         Hero / About Section
          ========================================
         */
         .home-container {
@@ -172,7 +173,7 @@
 
         @media (min-width: 900px) {
             .about-content {
-                grid-template-columns: 250px 1fr;
+                grid-template-columns: 320px 1fr;
                 gap: 4rem;
             }
         }
@@ -184,20 +185,20 @@
         }
         
         .profile-pic {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            border: 4px solid var(--bg-secondary);
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            border-radius: 12px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             object-fit: cover;
         }
 
         .intro-text h1 {
-            font-size: 3.2rem;
+            font-size: 2.2rem;
             margin-top: 0;
             margin-bottom: 1.5rem;
             color: var(--text-primary);
-            line-height: 1.1;
+            line-height: 1.2;
         }
         
         .intro-text p {
@@ -448,7 +449,7 @@
                 <img src="new6.png" alt="Giovanny Alvarez" class="profile-pic">
               </div>
               <div class="intro-text">
-                <h1>About Me</h1>
+                <h1>About</h1>
                 <p>
                     Welcome! I am a Visiting Assistant Professor in the Department of International Studies & Modern Languages at the University of St. Thomas in Houston. I hold a Ph.D. in Public Policy from the University of North Carolina at Chapel Hill, where I specialized in comparative politics and international policy. My research examines political violence, state capacity, and peace processes in post-conflict societies, with regional expertise in Latin America. I employ rigorous quantitative causal inference methods, including difference-in-differences, comparative interrupted time series, and panel models, combined with qualitative process tracing from extensive fieldwork to evaluate how policies affect violence patterns and vulnerable populations.
                 </p>
