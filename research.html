@@ -24,18 +24,21 @@
          ========================================
         */
         :root {
-            --text-primary: #2c3e50;
-            --text-secondary: #555;
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
             --bg-primary: #ffffff;
-            --bg-secondary: #f8f9fa;
-            --accent-color: #1e5f8b;
-            --border-color: #e5e7eb;
+            --bg-secondary: #f7fafc;
+            --accent-color: #2b6cb0;
+            --accent-hover: #1a365d;
+            --border-color: #e2e8f0;
             --published-bg: #dcfce7;
             --published-text: #166534;
-            --review-bg: #fef3c7; /* Color for 'Under Review' */
+            --review-bg: #fef3c7; 
             --review-text: #92400e;
             --working-paper-bg: #f3e8ff;
-            --working-paper-text: #374151;
+            --working-paper-text: #581c87;
+            --dissertation-bg: #e0f2fe;
+            --dissertation-text: #075985;
         }
 
         *, *::before, *::after {
@@ -48,6 +51,7 @@
             color: var(--text-secondary);
             margin: 0;
             line-height: 1.7;
+            font-size: 1.05rem;
         }
 
         h1, h2, h3, h4 {
@@ -59,15 +63,15 @@
         a {
             color: var(--accent-color);
             text-decoration: none;
-            transition: text-decoration 0.2s ease;
+            transition: all 0.2s ease-in-out;
         }
 
         a:hover {
-            text-decoration: underline;
+            color: var(--accent-hover);
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
             padding: 4rem 1.5rem;
@@ -87,15 +91,16 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 2.5vw;
-            height: 64px;
+            padding: 0 4vw;
+            height: 70px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
 
         .site-title-left {
             font-family: 'EB Garamond', serif;
-            font-size: 1.3em;
+            font-size: 1.4em;
             font-weight: bold;
-            letter-spacing: 0.13em;
+            letter-spacing: 0.1em;
             color: var(--text-primary);
             text-transform: uppercase;
         }
@@ -106,14 +111,33 @@
             padding: 0;
             display: flex;
             align-items: center;
-            gap: 2.2em;
+            gap: 2.5em;
         }
 
         .nav-links-right a {
-            font-family: 'EB Garamond', serif;
+            font-family: 'Source Sans Pro', sans-serif;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links-right a:hover {
             color: var(--accent-color);
-            font-weight: bold;
-            font-size: 1.1em;
+        }
+        
+        /* Highlight for dataset link */
+        .nav-links-right .dataset-link {
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+        }
+
+        .nav-links-right .dataset-link:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-primary);
         }
         
         /*
@@ -122,16 +146,17 @@
          ========================================
         */
         .section-heading {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
+            margin-top: 0;
         }
 
         .section-subheading {
             font-family: 'Source Sans Pro', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 400;
+            font-size: 1.15rem;
             color: var(--text-secondary);
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
+            text-align: justify;
         }
         
         .publication-card {
@@ -139,31 +164,32 @@
             border: 1px solid var(--border-color);
             border-radius: 0.75rem;
             margin-bottom: 2.5rem;
-            padding: 2rem;
+            padding: 2.5rem;
             transition: all 0.3s ease;
-            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
         }
 
         .publication-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+            border-color: var(--accent-color);
         }
         
         .publication-content-wrapper {
             display: flex;
-            flex-direction: column; /* Mobile-first: stacks vertically */
-            gap: 2rem;
+            flex-direction: column; 
+            gap: 2.5rem;
         }
 
         .publication-text {
-            flex: 2; /* Takes up 2/3 of the space on wider screens */
+            flex: 2.5; 
         }
         
         .publication-graph {
-            flex: 1; /* Takes up 1/3 of the space on wider screens */
-            min-width: 250px; /* Ensures graph has a minimum size */
+            flex: 1; 
+            min-width: 250px; 
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
         }
         
@@ -172,33 +198,36 @@
             height: auto;
             border-radius: 8px;
             border: 1px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         
         .publication-header {
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
-            gap: 1rem;
+            gap: 1.5rem;
             margin-bottom: 0.5rem;
         }
 
         .publication-title {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-top: 0;
             margin-bottom: 0.5rem;
+            line-height: 1.3;
         }
 
         .publication-status {
             display: inline-block;
-            padding: 0.25rem 0.75rem;
-            font-size: 0.75rem;
+            padding: 0.35rem 0.85rem;
+            font-size: 0.8rem;
             font-family: 'Source Sans Pro', sans-serif;
-            font-weight: 600;
+            font-weight: 700;
             border-radius: 9999px;
             text-transform: uppercase;
             white-space: nowrap;
             margin-top: 4px;
             flex-shrink: 0;
+            letter-spacing: 0.05em;
         }
 
         .status-published {
@@ -216,20 +245,28 @@
             color: var(--working-paper-text);
         }
 
+        .status-dissertation {
+            background-color: var(--dissertation-bg);
+            color: var(--dissertation-text);
+        }
+
         .publication-authors {
             font-style: italic;
             margin-bottom: 0.5rem;
+            color: var(--text-secondary);
         }
 
         .publication-journal {
             font-weight: 600;
             color: var(--text-primary);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
         }
 
         .publication-abstract {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             text-align: justify;
+            color: var(--text-secondary);
         }
         
         .publication-links {
@@ -242,30 +279,33 @@
             display: inline-flex;
             align-items: center;
             font-family: 'Source Sans Pro', sans-serif;
-            background-color: var(--text-primary);
-            color: var(--bg-primary);
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
             font-weight: 600;
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 0.375rem;
-            font-size: 0.875rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
         }
 
         .button:hover {
             background-color: var(--accent-color);
-            text-decoration: none;
             color: var(--bg-primary);
+            border-color: var(--accent-color);
+            text-decoration: none;
         }
         
         .button svg {
-            width: 1rem;
-            height: 1rem;
+            width: 1.1rem;
+            height: 1.1rem;
             margin-right: 0.5rem;
         }
         
         /* Responsive layout for two columns on wider screens */
         @media (min-width: 768px) {
             .publication-content-wrapper {
-                flex-direction: row; /* Side-by-side on larger screens */
+                flex-direction: row; 
             }
         }
 
@@ -276,10 +316,13 @@
         */
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: var(--bg-primary);
+            padding: 30px 20px;
+            background-color: transparent;
             border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
+            font-size: 0.95em;
+            color: var(--text-secondary);
+            max-width: 1000px;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -288,10 +331,10 @@
     <nav class="main-nav">
         <a href="index.html" class="site-title-left">GIOVANNY ALVAREZ</a>
         <ul class="nav-links-right">
-            <li><a href="index.html">Home</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="teaching.html">Teaching</a></li>
             <li><a href="cv.html">CV</a></li>
+            <li><a href="https://giovannyralvarez.github.io/USASSA/index.html" target="_blank" class="dataset-link">USASSA Dataset</a></li>
         </ul>
     </nav>
     
@@ -300,7 +343,33 @@
             <h2 class="section-heading">Research</h2>
             <p class="section-subheading">My research examines transitional justice, post-conflict violence, and peace processes in comparative perspective, with regional expertise in Latin America. I employ rigorous mixed methods combining quantitative causal inference—difference-in-differences (with staggered treatment designs), comparative interrupted time series analysis, and panel methods—with qualitative process tracing from extensive fieldwork to evaluate how policies affect violence patterns and vulnerable populations.</p>
 
-            <!-- Publication Card 1 -->
+            <!-- Publication Card 1: Dissertation -->
+            <div class="publication-card">
+                 <div class="publication-content-wrapper">
+                    <div class="publication-text">
+                        <div class="publication-header">
+                            <h3 class="publication-title">The Price of Elite Peace: A Dual-Arena Theory of Post-Conflict Violence</h3>
+                            <span class="publication-status status-dissertation">Ph.D. Dissertation</span>
+                        </div>
+                        <p class="publication-authors">Alvarez, Giovanny.</p>
+                        <p class="publication-journal">University of North Carolina at Chapel Hill (2026)</p>
+                        <p class="publication-abstract">
+                            This dissertation addresses the critical gap between elite peace and community security, exploring how peace interventions interact with armed actor incentives to redistribute violence between political and societal domains. Developing a "Dual-Arena" framework, the research argues that the institutional design of peace policies determines whether violence is reduced, transformed, or displaced. The dissertation comprises three interconnected essays: a cross-national analysis demonstrating how amnesties covering human rights violations pacify elites while endangering communities; a national-level study of Colombia (1980–2023) examining how state strategies interact with hybrid armed groups; and a subnational investigation revealing how consent-based counternarcotics policies inadvertently incentivize "economic spoilers" to escalate local violence. Collectively, these studies challenge single-outcome evaluation frameworks, demonstrating that elite pacification often comes at the hidden cost of everyday community security.
+                        </p>
+                        <div class="publication-links">
+                            <a href="https://www.proquest.com/docview/3345944950?accountid=14244&fromopenview=true&parentSessionId=OE%2FZuPaiOJP11NkhfcfNVh1XTEiS5onNZVozgv%2FKC1A%3D&parentSessionId=UTV5xDcxaDOAokaQ5SKeuj4RQRieDLGvYP598hq1AVA%3D&pq-origsite=gscholar&sourcetype=Dissertations%20&%20Theses" class="button" target="_blank" rel="noopener noreferrer">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.72"></path><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.72-1.72"></path></svg>
+                                ProQuest Document
+                            </a>
+                        </div>
+                    </div>
+                    <div class="publication-graph">
+                          <img src="dual_arena.png" alt="The Dual Arena of Post-Conflict Violence">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Publication Card 2 -->
             <div class="publication-card">
                 <div class="publication-content-wrapper">
                     <div class="publication-text">
@@ -331,8 +400,8 @@
             </div>
         
           
-  <!-- Publication Card 2 -->
- <div class="publication-card">
+           <!-- Publication Card 3 -->
+           <div class="publication-card">
                 <div class="publication-content-wrapper">
                     <div class="publication-text">
                         <div class="publication-header">
@@ -360,32 +429,8 @@
                     </div>
                 </div>
             </div>
- <!-- Publication Card 3 -->
-            <div class="publication-card">
-                 <div class="publication-content-wrapper">
-                    <div class="publication-text">
-                        <div class="publication-header">
-                            <h3 class="publication-title">Pacifying Elites, Endangering Communities: A Dual-Arena Theory of Post-Conflict Violence</h3>
-                            <span class="publication-status status-review">Under Review</span>
-                        </div>
-                        <p class="publication-authors">Alvarez, G.</p>
-                        <p class="publication-journal">Job Market Paper</p>
-                        <p class="publication-abstract">
-                            Why do amnesties that succeed in ending armed conflict fail to reduce—or even increase—societal violence? This study develops a Dual-Arena Theory arguing that transitional justice mechanisms operate differently across two spheres: the Elite Arena of political violence and the Local Arena of societal violence. Amnesties covering human rights violations (HRV amnesties) pacify elites by providing credible security guarantees but endanger communities by transmitting an impunity signal that erodes rule of law. These amnesties represent strategic elite choices that do not satisfy international accountability norms in form while preserving impunity in substance. Using a Callaway-Sant'Anna difference-in-differences estimator across 68 post-conflict countries (1989--2020), I find that HRV amnesties reduce conflict-related deaths by 82% while increasing homicides by 13-31% over fifteen years. Truth commissions implemented without HRV coverage reduce political violence without increasing societal violence, confirming that impunity—not transition itself—drives Local Arena effects. These findings reveal a hidden cost of negotiated peace: elite pacification comes at the expense of everyday security.
-                        <div class="publication-links">
-                            <a href="#" class="button">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12h16M4 12l6-6m-6 6l6 6"></path></svg>
-                                Draft available upon request
-                            </a>
-                        </div>
-                    </div>
-                    <div class="publication-graph">
-                          <img src="dual_arena.png" alt="The Dual Arena of Post-Conflict Violence">
-                    </div>
-                </div>
-            </div>
 
-  <!-- Publication Card 4 -->
+            <!-- Publication Card 4 -->
             <div class="publication-card">
                 <div class="publication-content-wrapper">
                     <div class="publication-text">
@@ -394,7 +439,7 @@
                             <span class="publication-status status-working-paper">Working Paper</span>
                         </div>
                         <p class="publication-authors">Alvarez, Giovanny  </p>
-                        <p class="publication-journal"></p>
+                        <p class="publication-journal">Manuscript in Progress</p>
                         <p class="publication-abstract">
                             Why does violence often transform rather than terminate following state
 interventions? I argue this puzzle stems from neglecting the organizational context of violence. My “dual arenas” framework contends that state strategies—accommodation versus coercion—produce different outcomes depending on whether
@@ -404,12 +449,9 @@ across all four strategy-context combinations: coercion under separation (1980�
 prediction—societal violence continued declining. These findings demonstrate that organizational context critically moderates strategy effectiveness, explaining why successful interventions may transform rather than eliminate violence.
                         </p>
                           <div class="publication-links">
-                            <a href="" class="button" target="_blank" rel="noopener noreferrer">
-                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.72"></path><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.72-1.72"></path></svg>
-                                Draft available upon request
-                            <a href="" class="button">
+                            <a href="#" class="button">
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12h16M4 12l6-6m-6 6l6 6"></path></svg>
-                                PDF
+                                Draft available upon request
                             </a>
                         </div>
                     </div>
@@ -419,10 +461,6 @@ prediction—societal violence continued declining. These findings demonstrate t
                 </div>
             </div>
 
-
-
-
-            
             <!-- Publication Card 5 -->
             <div class="publication-card">
                 <div class="publication-content-wrapper">
@@ -440,6 +478,7 @@ prediction—societal violence continued declining. These findings demonstrate t
                             <a href="https://www.tandfonline.com/doi/full/10.1080/14678800801977112" class="button" target="_blank" rel="noopener noreferrer">
                              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.72"></path><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.72-1.72"></path></svg>
                                 Link
+                            </a>
                             <a href="rediscoverineurope.pdf" class="button">
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12h16M4 12l6-6m-6 6l6 6"></path></svg>
                                 PDF
@@ -452,13 +491,11 @@ prediction—societal violence continued declining. These findings demonstrate t
                 </div>
             </div>
 
-           
-
         </div>
     </main>
 
     <footer>
-        <div class="container">
+        <div class="container" style="padding: 0;">
             <p>&copy; <span id="currentYear"></span> Giovanny Alvarez. All rights reserved.</p>
         </div>
     </footer>
