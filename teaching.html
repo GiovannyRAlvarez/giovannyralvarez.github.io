@@ -24,12 +24,13 @@
          ========================================
         */
         :root {
-            --text-primary: #2c3e50;
-            --text-secondary: #555;
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
             --bg-primary: #ffffff;
-            --bg-secondary: #f8f9fa;
-            --accent-color: #1e5f8b;
-            --border-color: #e5e7eb;
+            --bg-secondary: #f7fafc;
+            --accent-color: #2b6cb0;
+            --accent-hover: #1a365d;
+            --border-color: #e2e8f0;
             --instructor-bg: #dbeafe;
             --instructor-text: #1e40af;
             --ta-bg: #e0e7ff;
@@ -46,6 +47,7 @@
             color: var(--text-secondary);
             margin: 0;
             line-height: 1.7;
+            font-size: 1.05rem;
         }
 
         h1, h2, h3, h4 {
@@ -61,7 +63,7 @@
         }
 
         a:hover {
-            color: #1a237e;
+            color: var(--accent-hover);
         }
         
         .container {
@@ -90,15 +92,16 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 2.5vw;
-            height: 64px;
+            padding: 0 4vw;
+            height: 70px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
 
         .site-title-left {
             font-family: 'EB Garamond', serif;
-            font-size: 1.3em;
+            font-size: 1.4em;
             font-weight: bold;
-            letter-spacing: 0.13em;
+            letter-spacing: 0.1em;
             color: var(--text-primary);
             text-transform: uppercase;
         }
@@ -109,14 +112,33 @@
             padding: 0;
             display: flex;
             align-items: center;
-            gap: 2.2em;
+            gap: 2.5em;
         }
 
         .nav-links-right a {
-            font-family: 'EB Garamond', serif;
+            font-family: 'Source Sans Pro', sans-serif;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links-right a:hover {
             color: var(--accent-color);
-            font-weight: bold;
-            font-size: 1.1em;
+        }
+        
+        /* Highlight for dataset link */
+        .nav-links-right .dataset-link {
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+        }
+
+        .nav-links-right .dataset-link:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-primary);
         }
         
         /*
@@ -132,18 +154,20 @@
         .hero-section h1 {
             font-size: 3rem;
             margin-bottom: 1.5rem;
+            margin-top: 0;
         }
 
         .hero-section p {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             color: var(--text-secondary);
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            text-align: justify;
         }
         
         .section-heading {
-            font-size: 2.25rem;
+            font-size: 2.5rem;
             margin-bottom: 3rem;
             text-align: center;
         }
@@ -157,6 +181,11 @@
             display: flex;
             flex-direction: column;
             gap: 3rem;
+            background-color: var(--bg-primary);
+            padding: 3rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
         }
 
         @media (min-width: 992px) {
@@ -170,8 +199,14 @@
             padding-right: 2rem;
         }
         
+        .philosophy-text h3 {
+            font-size: 1.6rem;
+            margin-top: 0;
+        }
+
         .philosophy-text p {
             text-align: justify;
+            margin-bottom: 1rem;
         }
 
         .philosophy-points {
@@ -179,14 +214,14 @@
             list-style-type: none;
             margin: 0;
             padding: 0;
-            border-left: 2px solid var(--accent-color);
+            border-left: 2px solid var(--border-color);
             padding-left: 2rem;
         }
 
         .philosophy-points li {
             display: flex;
             align-items: flex-start;
-            gap: 1.5rem;
+            gap: 1.2rem;
             margin-bottom: 2rem;
         }
         
@@ -196,15 +231,17 @@
 
         .philosophy-icon {
             color: var(--accent-color);
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 2.2rem;
+            height: 2.2rem;
             flex-shrink: 0;
-            margin-top: 0.25rem;
+            margin-top: 0.1rem;
         }
 
         .philosophy-points h3 {
             margin: 0 0 0.25rem 0;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
+            font-family: 'Source Sans Pro', sans-serif;
+            color: var(--text-primary);
         }
 
         .philosophy-points p {
@@ -218,15 +255,16 @@
          ========================================
         */
         .course-group {
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
         }
 
         .course-group-title {
-            font-size: 1.75rem;
+            font-size: 1.6rem;
             margin-bottom: 1.5rem;
             padding-bottom: 0.75rem;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 2px solid var(--border-color);
             text-align: left;
+            color: var(--text-primary);
         }
 
         .course-card {
@@ -237,11 +275,13 @@
             transition: all 0.3s ease;
             text-align: left;
             margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
 
         .course-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            border-color: var(--accent-color);
         }
 
         .course-header {
@@ -252,8 +292,10 @@
         }
         
         .course-title {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin: 0;
+            font-family: 'Source Sans Pro', sans-serif;
+            color: var(--text-primary);
         }
 
         .course-badges {
@@ -264,12 +306,13 @@
 
         .badge {
             display: inline-block;
-            padding: 0.25rem 0.75rem;
+            padding: 0.3rem 0.8rem;
             font-size: 0.75rem;
             font-family: 'Source Sans Pro', sans-serif;
-            font-weight: 600;
+            font-weight: 700;
             border-radius: 9999px;
             text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .badge-instructor {
@@ -283,14 +326,15 @@
         }
         
         .course-details {
-            font-size: 0.9em;
+            font-size: 0.95em;
             color: var(--text-secondary);
-            margin-bottom: 1rem;
-            font-style: italic;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
         }
         
         .course-description {
             margin-bottom: 0;
+            font-size: 0.95rem;
         }
 
         @media (min-width: 1024px) {
@@ -308,10 +352,13 @@
         */
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: var(--bg-primary);
+            padding: 30px 20px;
+            background-color: transparent;
             border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
+            font-size: 0.95em;
+            color: var(--text-secondary);
+            max-width: 1024px;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -320,10 +367,10 @@
     <nav class="main-nav">
         <a href="index.html" class="site-title-left">GIOVANNY ALVAREZ</a>
         <ul class="nav-links-right">
-            <li><a href="index.html">Home</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="teaching.html">Teaching</a></li>
             <li><a href="cv.html">CV</a></li>
+            <li><a href="https://giovannyralvarez.github.io/USASSA/index.html" target="_blank" class="dataset-link">USASSA Dataset</a></li>
         </ul>
     </nav>
     
@@ -343,14 +390,15 @@
                 <div class="philosophy-container">
                     <div class="philosophy-text">
                         <h3>My Approach</h3>
-                        <p>My teaching is fundamentally shaped by my experience as both a practitioner and a scholar. Having worked in active conflict zones and participated in peace negotiations, I am driven by the conviction that political science must be a tool for understanding and improving the human condition. My passion for these subjects, born from direct experience, aims to foster deep engagement and understanding. Ultimately, my goal is for students to leave my classroom with a new lens for viewing the world—as one student kindly noted, to have their "eyes opened to the subject of global policy issues." This transformation from passive observer to engaged, critical thinker is the most rewarding outcome of my teaching.</p>
+                        <p>My teaching is fundamentally shaped by my experience as both a practitioner and a scholar. Having worked in active conflict zones and participated in peace negotiations, I am driven by the conviction that political science must be a tool for understanding and improving the human condition. My passion for these subjects, born from direct experience, aims to foster deep engagement and understanding.</p>
+                        <p>Ultimately, my goal is for students to leave my classroom with a new lens for viewing the world—as one student kindly noted, to have their "eyes opened to the subject of global policy issues." This transformation from passive observer to engaged, critical thinker is the most rewarding outcome of my teaching.</p>
                     </div>
                     <ul class="philosophy-points">
                         <li>
                             <svg class="philosophy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
                             <div>
                                 <h3>Theory & Practice</h3>
-                                <p>Anchoring abstract concepts in concrete case studies and my professional experience.</p>
+                                <p>Anchoring abstract concepts in concrete case studies and my professional field experience.</p>
                             </div>
                         </li>
                         <li>
@@ -367,22 +415,64 @@
                                 <p>Harnessing AI as a tool to enhance, not replace, the nuanced work of human analysis.</p>
                             </div>
                         </li>
+                        <li>
+                            <svg class="philosophy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                            <div>
+                                <h3>Mentorship</h3>
+                                <p>Guiding the next generation of scholars, including serving as a mentor for the American Political Science Association (APSA).</p>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section>
+        <section style="padding-top: 0;">
             <div class="container">
-                <h2 class="section-heading">Courses Taught</h2>
+                <h2 class="section-heading">Courses</h2>
                 
+                <!-- NEW: Incoming Courses at UST -->
                 <div class="course-group">
-                    <h3 class="course-group-title">At UNC-Chapel Hill</h3>
+                    <h3 class="course-group-title">University of St. Thomas (Incoming Fall 2026)</h3>
+                    
+                    <div class="card course-card">
+                        <div class="course-header">
+                            <h3 class="course-title">INST 3352: International Politics</h3>
+                            <div class="course-badges">
+                                <span class="badge badge-instructor">Instructor</span>
+                            </div>
+                        </div>
+                        <p class="course-details">Fall 2026</p>
+                    </div>
+
+                    <div class="card course-card">
+                        <div class="course-header">
+                            <h3 class="course-title">INST 3354: International Political Economy</h3>
+                            <div class="course-badges">
+                                <span class="badge badge-instructor">Instructor</span>
+                            </div>
+                        </div>
+                        <p class="course-details">Fall 2026</p>
+                    </div>
+
+                    <div class="card course-card">
+                        <div class="course-header">
+                            <h3 class="course-title">INST 4351: Latin American Economic Development</h3>
+                            <div class="course-badges">
+                                <span class="badge badge-instructor">Instructor</span>
+                            </div>
+                        </div>
+                        <p class="course-details">Fall 2026 (Online - Asynchronous)</p>
+                    </div>
+                </div>
+
+                <div class="course-group">
+                    <h3 class="course-group-title">UNC-Chapel Hill</h3>
                     <div class="card course-card">
                         <div class="course-header">
                             <h3 class="course-title">Global Policy Issues</h3>
                             <div class="course-badges">
-                                <span class="badge badge-ta">Teaching Fellow/TA</span>
+                                <span class="badge badge-ta">Teaching Fellow / TA</span>
                             </div>
                         </div>
                         <p class="course-details">Spring 2024, Spring 2025</p>
@@ -411,7 +501,7 @@
                 </div>
 
                 <div class="course-group">
-                    <h3 class="course-group-title">As Instructor of Record for Undergraduate and Graduate Levels (Colombia)</h3>
+                    <h3 class="course-group-title">Instructor of Record (Colombia)</h3>
                     <div class="card course-card">
                         <div class="course-header">
                             <h3 class="course-title">Humanitarian Action</h3>
@@ -450,7 +540,7 @@
     </main>
 
     <footer>
-        <div class="container">
+        <div class="container" style="padding: 0;">
             <p>&copy; <span id="currentYear"></span> Giovanny Alvarez. All rights reserved.</p>
         </div>
     </footer>
