@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9XEZPS82JB"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9XEZPS82JB"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -24,12 +23,13 @@
          ========================================
         */
         :root {
-            --text-primary: #2c3e50;
-            --text-secondary: #555;
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
             --bg-primary: #ffffff;
-            --bg-secondary: #eef2fb;
-            --accent-color: #1e5f8b;
-            --border-color: #e5e7eb;
+            --bg-secondary: #f7fafc;
+            --accent-color: #2b6cb0;
+            --accent-hover: #1a365d;
+            --border-color: #e2e8f0;
         }
 
         *, *::before, *::after {
@@ -42,6 +42,7 @@
             color: var(--text-secondary);
             margin: 0;
             line-height: 1.8;
+            font-size: 1.1rem;
         }
 
         h1, h2, h3, h4 {
@@ -53,11 +54,11 @@
         a {
             color: var(--accent-color);
             text-decoration: none;
-            transition: color 0.2s ease;
+            transition: all 0.2s ease-in-out;
         }
 
         a:hover {
-            color: #1a237e;
+            color: var(--accent-hover);
         }
         
         .container {
@@ -81,15 +82,16 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 2.5vw;
-            height: 64px;
+            padding: 0 4vw;
+            height: 70px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
 
         .site-title-left {
             font-family: 'EB Garamond', serif;
-            font-size: 1.3em;
+            font-size: 1.4em;
             font-weight: bold;
-            letter-spacing: 0.13em;
+            letter-spacing: 0.1em;
             color: var(--text-primary);
             text-transform: uppercase;
         }
@@ -100,83 +102,120 @@
             padding: 0;
             display: flex;
             align-items: center;
-            gap: 2.2em;
+            gap: 2.5em;
         }
 
         .nav-links-right a {
-            font-family: 'EB Garamond', serif;
+            font-family: 'Source Sans Pro', sans-serif;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links-right a:hover {
             color: var(--accent-color);
-            font-weight: bold;
-            font-size: 1.1em;
         }
         
+        /* Highlight for dataset link */
+        .nav-links-right .dataset-link {
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+        }
+
+        .nav-links-right .dataset-link:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-primary);
+        }
+
+        /*
+         ========================================
+         Shared Section Styles
+         ========================================
+        */
+        .content-section {
+            background-color: var(--bg-primary);
+            border-radius: 1rem;
+            margin: 3rem auto;
+            max-width: 1200px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            padding: 2rem;
+        }
+
+        .section-heading {
+            font-size: 2.8rem;
+            margin-top: 0;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
         /*
          ========================================
          Hero / About Me Section
          ========================================
         */
-        #home {
-            background-color: var(--bg-primary);
-            border-radius: 0.75rem;
-            margin: 2rem auto;
-            max-width: 1200px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
-
         .home-container {
             display: flex;
             flex-direction: column;
-            gap: 3rem;
+            gap: 4rem;
         }
         
         .about-content {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 2rem;
-            align-items: center;
+            gap: 3rem;
+            align-items: start;
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 900px) {
             .about-content {
-                grid-template-columns: auto 1fr;
-                gap: 3rem;
+                grid-template-columns: 250px 1fr;
+                gap: 4rem;
             }
         }
         
         .profile-pic-container {
             text-align: center;
+            position: sticky;
+            top: 100px;
         }
         
         .profile-pic {
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
-            border: 5px solid var(--bg-primary);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border: 4px solid var(--bg-secondary);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             object-fit: cover;
         }
 
         .intro-text h1 {
-            font-size: 3rem;
+            font-size: 3.2rem;
             margin-top: 0;
             margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            line-height: 1.1;
         }
         
         .intro-text p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
             text-align: justify;
         }
 
         .intro-text em {
             font-style: italic;
             color: var(--text-primary);
+            font-weight: 500;
         }
         
         .fieldwork-gallery {
             display: grid;
             grid-template-columns: 1fr;
             gap: 1.5rem;
+            margin-top: 2rem;
         }
         
         @media (min-width: 768px) {
@@ -187,24 +226,65 @@
         
         .gallery-image {
             width: 100%;
-            height: auto;
+            height: 250px;
+            object-fit: cover;
             border-radius: 0.5rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
         .gallery-image:hover {
-            transform: scale(1.03);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
         }
 
         .gallery-caption {
-            grid-column: 1 / -1; /* Make caption span all columns */
-            font-size: 0.9rem;
+            grid-column: 1 / -1;
+            font-size: 0.95rem;
             color: var(--text-secondary);
             margin-top: 1rem;
             font-style: italic;
             text-align: center;
+        }
+
+        /*
+         ========================================
+         Research & Manuscripts Section
+         ========================================
+        */
+        .research-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .research-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .research-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 0.5rem;
+        }
+
+        .research-card h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .research-card ul {
+            padding-left: 1.2rem;
+            margin-bottom: 0;
+        }
+
+        .research-card li {
+            margin-bottom: 0.8rem;
         }
 
         /*
@@ -214,23 +294,14 @@
         */
         #timeline {
             text-align: center;
-            background-color: var(--bg-primary);
-            border-radius: 0.75rem;
-            margin: 2rem auto;
-            max-width: 1200px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
-
-        .section-heading {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+            padding: 3rem;
         }
 
         .timeline-container {
             position: relative;
             width: 100%;
-            margin: 50px auto;
-            padding: 30px 0;
+            margin: 0 auto;
+            margin-top: 3rem;
         }
 
         .timeline-line {
@@ -238,33 +309,40 @@
             left: 5%;
             right: 5%;
             top: 50%;
-            height: 4px;
+            height: 3px;
             background-color: var(--border-color);
             border-radius: 2px;
-            margin-top: -2px;
+            margin-top: -1.5px;
         }
 
         .milestones-wrapper {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             position: relative;
+            flex-wrap: wrap;
         }
 
         .milestone {
             position: relative;
-            width: calc(100% / 6 - 20px);
-            min-width: 150px;
+            width: calc(100% / 5 - 15px);
+            min-width: 180px;
             padding: 10px;
-            margin: 0 10px;
         }
 
         .milestone-content {
-            background-color: var(--bg-secondary);
+            background-color: var(--bg-primary);
             border: 1px solid var(--border-color);
-            padding: 15px;
+            padding: 20px 15px;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
             position: relative;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            z-index: 2;
+        }
+        
+        .milestone-content:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-color);
         }
 
         .milestone-content::before {
@@ -272,55 +350,82 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             background-color: var(--accent-color);
             border: 3px solid var(--bg-primary);
             border-radius: 50%;
+            z-index: 1;
         }
 
         .milestone:nth-child(odd) .milestone-content {
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
         .milestone:nth-child(odd) .milestone-content::before {
-            bottom: -36px;
+            bottom: -43px;
         }
 
         .milestone:nth-child(even) .milestone-content {
-            margin-top: 50px;
+            margin-top: 60px;
         }
          .milestone:nth-child(even) .milestone-content::before {
-            top: -36px;
+            top: -43px;
         }
 
         .milestone-year {
-            font-weight: bold;
-            font-size: 1.1em;
-            color: var(--text-primary);
-            margin-bottom: 10px;
+            font-weight: 700;
+            font-size: 1.2em;
+            color: var(--accent-color);
+            margin-bottom: 8px;
             display: block;
         }
 
         .milestone-title {
-            font-weight: bold;
-            font-size: 1em;
+            font-weight: 600;
+            font-size: 1.05em;
             margin-bottom: 5px;
+            color: var(--text-primary);
+            line-height: 1.3;
         }
 
         .milestone-description {
             font-size: 0.9em;
+            color: var(--text-secondary);
+            margin: 0;
         }
 
         /*
          ========================================
-         Footer
+         Footer & Contact
          ========================================
         */
+        #contact {
+            text-align: center;
+        }
+
+        .contact-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links li {
+            font-size: 1.1rem;
+        }
+
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 30px 20px;
             background-color: transparent;
-            font-size: 0.9em;
+            font-size: 0.95em;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            max-width: 1200px;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -332,10 +437,11 @@
             <li><a href="cv.html">CV</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="https://giovannyralvarez.github.io/USASSA/index.html" target="_blank" class="dataset-link">USASSA Dataset</a></li>
         </ul>
     </nav>
 
-    <section id="home">
+    <section id="home" class="content-section">
       <div class="container home-container">
           <div class="about-content">
               <div class="profile-pic-container">
@@ -344,11 +450,13 @@
               <div class="intro-text">
                 <h1>About Me</h1>
                 <p>
-                    Welcome! I am a Ph.D. graduate in Public Policy from the University of North Carolina at Chapel Hill, specializing in comparative politics and international policy. My research examines political violence, state capacity, and peace processes in post-conflict societies, with regional expertise in Latin America. I employ rigorous quantitative causal inference methods—difference-in-differences (with staggered treatment designs), comparative interrupted time series analysis, and panel methods—combined with qualitative process tracing from extensive fieldwork to evaluate how policies affect violence patterns and vulnerable populations.
-                  <p>
-                    With 17 years of experience working on peacebuilding and conflict resolution with the United Nations, USAID, and the Colombian Ombudsman's Office, I participated directly in three peace negotiations, including supporting the victims and transitional justice chapter of Colombia's 2016 FARC peace accord. This practitioner experience grounds my research on a broader theoretical puzzle: why do peace agreements successfully reduce political violence in some contexts while criminal violence surges in others, disproportionately affecting marginalized communities? While my doctoral research develops this theory using Colombia as an empirical case, my research agenda examines post-conflict violence comparatively to develop generalizable insights about when policies protect versus endanger vulnerable populations.  
+                    Welcome! I am a Visiting Assistant Professor in the Department of International Studies & Modern Languages at the University of St. Thomas in Houston. I hold a Ph.D. in Public Policy from the University of North Carolina at Chapel Hill, where I specialized in comparative politics and international policy. My research examines political violence, state capacity, and peace processes in post-conflict societies, with regional expertise in Latin America. I employ rigorous quantitative causal inference methods, including difference-in-differences, comparative interrupted time series, and panel models, combined with qualitative process tracing from extensive fieldwork to evaluate how policies affect violence patterns and vulnerable populations.
+                </p>
                 <p>
-                 My work has been recognized with a Dissertation Completion Fellowship from the <em>International Studies Association</em> and a Saperstein Fellowship from <em>Wayne State University</em>. My work has been published in the <em>Journal of Conflict Resolution</em>, <em>Studies in Conflict & Terrorism</em>,  and <em>Conflict, Security & Development</em>.
+                    With 17 years of professional experience in peacebuilding and conflict resolution alongside the United Nations, USAID, and the Colombian Ombudsman's Office, I participated directly in three peace negotiations. This included supporting the victims and transitional justice chapter of Colombia's 2016 FARC peace accord. This practitioner experience grounds my research on a broader theoretical puzzle: why do peace agreements successfully reduce political violence in some contexts while criminal violence surges in others, disproportionately affecting marginalized communities? While my doctoral research develops this dual-arena theory using Colombia as an empirical case, my broader research agenda examines post-conflict violence comparatively to generate insights about when policies protect versus endanger vulnerable populations.  
+                </p>
+                <p>
+                 My work has been recognized with a Dissertation Completion Fellowship from the <em>International Studies Association</em> and a Saperstein Fellowship from <em>Wayne State University</em>. 
                 </p>
               </div>
           </div>
@@ -363,43 +471,50 @@
       </div>
     </section>
 
-    <section id="timeline">
+    <section id="research" class="content-section">
         <div class="container">
-            <h2 class="section-heading">My Journey</h2>
+            <h2 class="section-heading">Selected Research & Manuscripts</h2>
+            <div class="research-grid">
+                <div class="research-card">
+                    <h3>Current Research Portfolio</h3>
+                    <p>My active research portfolio currently consists of two primary manuscripts developing and testing the <strong>Dual-Arena Theory of Post-Conflict Violence</strong>. This work explores the divergent effects of transitional justice on political versus societal domains, explaining how amnesties and peace frameworks can inadvertently redistribute violence rather than eliminate it.</p>
+                </div>
+                <div class="research-card">
+                    <h3>Recent Publications</h3>
+                    <p>My peer-reviewed work has been accepted for publication in leading academic journals, including:</p>
+                    <ul>
+                        <li><em>Journal of Conflict Resolution</em></li>
+                        <li><em>Studies in Conflict & Terrorism</em></li>
+                        <li><em>Conflict, Security & Development</em></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline" class="content-section">
+        <div class="container">
+            <h2 class="section-heading">Professional & Academic Trajectory</h2>
             <div class="timeline-container">
                 <div class="timeline-line"></div>
                 <div class="milestones-wrapper">
                     <div class="milestone">
                         <div class="milestone-content">
-                            <span class="milestone-year">2003</span>
-                            <h3 class="milestone-title">B.A. Political Science</h3>
-                            <p class="milestone-description">Universidad Nacional de Colombia</p>
+                            <span class="milestone-year">2003-2013</span>
+                            <h3 class="milestone-title">Field Research & Human Rights</h3>
+                            <p class="milestone-description">Extensive groundwork investigating political violence</p>
                         </div>
                     </div>
                     <div class="milestone">
                         <div class="milestone-content">
-                            <span class="milestone-year">2003</span>
-                            <h3 class="milestone-title">Field Work Begins</h3>
-                            <p class="milestone-description">Human Rights Researcher</p>
-                        </div>
-                    </div>
-                    <div class="milestone">
-                        <div class="milestone-content">
-                            <span class="milestone-year">2008</span>
-                            <h3 class="milestone-title">M.A. Political Studies</h3>
-                            <p class="milestone-description">Universidad Nacional de Colombia</p>
-                        </div>
-                    </div>
-                    <div class="milestone">
-                        <div class="milestone-content">
-                            <span class="milestone-year">2014-16</span>
+                            <span class="milestone-year">2014-2016</span>
                             <h3 class="milestone-title">Peace Negotiations</h3>
-                            <p class="milestone-description">UN Victims' Component Team</p>
+                            <p class="milestone-description">UN Victims' Component Team & USAID</p>
                         </div>
                     </div>
                     <div class="milestone">
                         <div class="milestone-content">
-                            <span class="milestone-year">2019-21</span>
+                            <span class="milestone-year">2019-2021</span>
                             <h3 class="milestone-title">Rotary Peace Fellow</h3>
                             <p class="milestone-description">M.A. Global Studies, UNC</p>
                         </div>
@@ -408,7 +523,14 @@
                         <div class="milestone-content">
                             <span class="milestone-year">2026</span>
                             <h3 class="milestone-title">Ph.D. Public Policy</h3>
-                            <p class="milestone-description">Expected Graduation, UNC</p>
+                            <p class="milestone-description">University of North Carolina</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-content">
+                            <span class="milestone-year">2026-Present</span>
+                            <h3 class="milestone-title">Visiting Assistant Professor</h3>
+                            <p class="milestone-description">University of St. Thomas</p>
                         </div>
                     </div>
                 </div>
@@ -416,27 +538,21 @@
         </div>
     </section>
 
-        <script>
-        // Update footer year dynamically
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-    </script>
-
     <section id="contact">
         <div class="container">
-            <h2>Contact</h2>
+            <h2>Connect With Me</h2>
             <p>Feel free to reach out if you'd like to discuss research, collaborations, or other opportunities.</p>
-            <ul>
+            <ul class="contact-links">
                 <li><strong>Email:</strong> <a href="mailto:gioralvarez@outlook.com">gioralvarez@outlook.com</a></li>
                 <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/giovannyalvarez/" target="_blank">linkedin.com/in/giovannyalvarez</a></li>
                 <li><strong>GitHub:</strong> <a href="https://github.com/GiovannyRAlvarez" target="_blank">github.com/GiovannyRAlvarez</a></li>
+                <li><strong>Main Site:</strong> <a href="https://giovannyralvarez.github.io/" target="_blank">giovannyralvarez.github.io</a></li>
             </ul>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <p>&copy; <span id="currentYear"></span> Giovanny Alvarez. All rights reserved.</p>
-        </div>
+        <p>&copy; <span id="currentYear"></span> Giovanny Alvarez. All rights reserved.</p>
     </footer>
 
     <script>
