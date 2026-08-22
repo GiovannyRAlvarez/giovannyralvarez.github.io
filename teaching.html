@@ -7,7 +7,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-9XEZPS82JB');
 </script>
     <meta charset="UTF-8">
@@ -16,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
-    
+
     <style>
         /*
          ========================================
@@ -36,11 +35,9 @@
             --ta-bg: #e0e7ff;
             --ta-text: #3730a3;
         }
-
         *, *::before, *::after {
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Source Sans Pro', sans-serif;
             background-color: var(--bg-secondary);
@@ -49,35 +46,31 @@
             line-height: 1.7;
             font-size: 1.05rem;
         }
-
         h1, h2, h3, h4 {
             font-family: 'EB Garamond', serif;
             color: var(--text-primary);
             font-weight: 700;
         }
-
         a {
             color: var(--accent-color);
             text-decoration: none;
             transition: color 0.2s ease;
         }
-
         a:hover {
             color: var(--accent-hover);
         }
-        
+
         .container {
             max-width: 1024px;
             margin-left: auto;
             margin-right: auto;
             padding: 2.5rem 1.5rem;
         }
-
         section {
             padding-top: 2.5rem;
             padding-bottom: 2.5rem;
         }
-        
+
         /*
          ========================================
          Navigation Bar (Header)
@@ -96,7 +89,6 @@
             height: 70px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
-
         .site-title-left {
             font-family: 'EB Garamond', serif;
             font-size: 1.4em;
@@ -105,7 +97,6 @@
             color: var(--text-primary);
             text-transform: uppercase;
         }
-
         .nav-links-right {
             list-style-type: none;
             margin: 0;
@@ -114,7 +105,6 @@
             align-items: center;
             gap: 2.5em;
         }
-
         .nav-links-right a {
             font-family: 'Source Sans Pro', sans-serif;
             color: var(--text-secondary);
@@ -123,11 +113,10 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
-
         .nav-links-right a:hover {
             color: var(--accent-color);
         }
-        
+
         /* Highlight for dataset link */
         .nav-links-right .dataset-link {
             color: var(--accent-color);
@@ -135,12 +124,11 @@
             padding: 0.4rem 1rem;
             border-radius: 4px;
         }
-
         .nav-links-right .dataset-link:hover {
             background-color: var(--accent-color);
             color: var(--bg-primary);
         }
-        
+
         /*
          ========================================
          Main Content & Card Styling
@@ -150,13 +138,11 @@
             text-align: center;
             padding-bottom: 0;
         }
-
         .hero-section h1 {
             font-size: 3rem;
             margin-bottom: 1.5rem;
             margin-top: 0;
         }
-
         .hero-section p {
             font-size: 1.15rem;
             color: var(--text-secondary);
@@ -165,13 +151,80 @@
             margin-right: auto;
             text-align: justify;
         }
-        
+
         .section-heading {
             font-size: 2.5rem;
             margin-bottom: 3rem;
             text-align: center;
         }
-        
+
+        /*
+         ========================================
+         Two Objectives Band
+         ========================================
+        */
+        .objectives-band {
+            padding-top: 1.5rem;
+            padding-bottom: 0;
+        }
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .objectives-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .objective-card {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--accent-color);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+        }
+        .objective-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+        .objective-number {
+            display: inline-block;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+        .objective-card h3 {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1.3rem;
+            margin: 0 0 0.75rem 0;
+            line-height: 1.35;
+        }
+        .objective-card p {
+            margin: 0 0 0.9rem 0;
+            font-size: 1rem;
+            text-align: left;
+        }
+        .objective-card p:last-child {
+            margin-bottom: 0;
+        }
+        .objective-card .in-practice {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            padding-top: 0.9rem;
+        }
+        .in-practice strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
         /*
          ========================================
          Teaching Philosophy Section
@@ -187,28 +240,24 @@
             border: 1px solid var(--border-color);
             box-shadow: 0 4px 10px rgba(0,0,0,0.02);
         }
-
         @media (min-width: 992px) {
             .philosophy-container {
                 flex-direction: row;
             }
         }
-
         .philosophy-text {
             flex: 2;
             padding-right: 2rem;
         }
-        
+
         .philosophy-text h3 {
             font-size: 1.6rem;
             margin-top: 0;
         }
-
         .philosophy-text p {
             text-align: justify;
             margin-bottom: 1rem;
         }
-
         .philosophy-points {
             flex: 1;
             list-style-type: none;
@@ -217,18 +266,16 @@
             border-left: 2px solid var(--border-color);
             padding-left: 2rem;
         }
-
         .philosophy-points li {
             display: flex;
             align-items: flex-start;
             gap: 1.2rem;
             margin-bottom: 2rem;
         }
-        
+
         .philosophy-points li:last-child {
             margin-bottom: 0;
         }
-
         .philosophy-icon {
             color: var(--accent-color);
             width: 2.2rem;
@@ -236,19 +283,16 @@
             flex-shrink: 0;
             margin-top: 0.1rem;
         }
-
         .philosophy-points h3 {
             margin: 0 0 0.25rem 0;
             font-size: 1.15rem;
             font-family: 'Source Sans Pro', sans-serif;
             color: var(--text-primary);
         }
-
         .philosophy-points p {
             margin: 0;
             font-size: 0.95rem;
         }
-
         /*
          ========================================
          Courses Taught Section
@@ -257,7 +301,6 @@
         .course-group {
             margin-bottom: 3.5rem;
         }
-
         .course-group-title {
             font-size: 1.6rem;
             margin-bottom: 1.5rem;
@@ -266,7 +309,6 @@
             text-align: left;
             color: var(--text-primary);
         }
-
         .course-card {
             background-color: var(--bg-primary);
             border: 1px solid var(--border-color);
@@ -277,33 +319,29 @@
             margin-bottom: 1.5rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
-
         .course-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.06);
             border-color: var(--accent-color);
         }
-
         .course-header {
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
             margin-bottom: 0.5rem;
         }
-        
+
         .course-title {
             font-size: 1.4rem;
             margin: 0;
             font-family: 'Source Sans Pro', sans-serif;
             color: var(--text-primary);
         }
-
         .course-badges {
             display: flex;
             gap: 0.5rem;
             flex-shrink: 0;
         }
-
         .badge {
             display: inline-block;
             padding: 0.3rem 0.8rem;
@@ -314,29 +352,26 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
-
         .badge-instructor {
             background-color: var(--instructor-bg);
             color: var(--instructor-text);
         }
-
         .badge-ta {
             background-color: var(--ta-bg);
             color: var(--ta-text);
         }
-        
+
         .course-details {
             font-size: 0.95em;
             color: var(--text-secondary);
             margin-bottom: 0.8rem;
             font-weight: 600;
         }
-        
+
         .course-description {
             margin-bottom: 0;
             font-size: 0.95rem;
         }
-
         @media (min-width: 1024px) {
             .course-header {
                 flex-direction: row;
@@ -344,7 +379,6 @@
                 align-items: center;
             }
         }
-
         /*
          ========================================
          Footer
@@ -363,7 +397,6 @@
     </style>
 </head>
 <body>
-
     <nav class="main-nav">
         <a href="index.html" class="site-title-left">GIOVANNY ALVAREZ</a>
         <ul class="nav-links-right">
@@ -373,14 +406,36 @@
             <li><a href="https://giovannyralvarez.github.io/USASSA/index.html" target="_blank" class="dataset-link">USASSA Dataset</a></li>
         </ul>
     </nav>
-    
+
     <main>
         <section class="hero-section">
             <div class="container">
                 <h1>Teaching</h1>
                 <p>
-                    Drawing from seventeen years of hands-on peacebuilding experience, my teaching philosophy centers on bridging the often vast divide between academic theory and real-world practice. In my classroom, students engage with both the foundational theories that define our discipline and the critical skills necessary to evaluate how these concepts perform when confronted with the complex realities of conflict, governance, and social change. This approach ensures that learning extends beyond memorizing theoretical frameworks to developing the analytical capacity to understand when, why, and how these theories succeed or fall short in practice. By integrating field experience with rigorous academic inquiry, I aim to prepare students who can think both theoretically and practically about the complex challenges facing our world today.
+                    I spent seventeen years working on peace and conflict before I began teaching full time. I sat at three peace negotiations, helped build the victims and transitional justice chapter of Colombia's 2016 accord with the FARC, and watched carefully designed policies produce outcomes nobody in the room intended. That experience gave me two objectives that organize every course I teach: students learn to think critically by testing theory against real situations, and they learn to evaluate policy that is currently in force using official documents and ongoing international cases. My aim is not students who can recite a framework. It is students who can take a theory into a specific case, find where it holds and where it breaks, say why, and defend a position on what should be done instead.
                 </p>
+            </div>
+        </section>
+
+        <section class="objectives-band">
+            <div class="container">
+                <div class="objectives-grid">
+
+                    <div class="objective-card">
+                        <span class="objective-number">Objective One</span>
+                        <h3>Critical thinking: crossing theory with real cases</h3>
+                        <p>I introduce a concept and then immediately put a case in front of students that strains it. In International Politics, we read the standard bargaining account of why wars end, and then I hand them the Colombian negotiation, including the parts that went badly. Students take theory more seriously, not less, when they see a practitioner treat it as something that can fail.</p>
+                        <p class="in-practice"><strong>In practice:</strong> sequential questioning that starts with something every student can answer and moves toward something they did not expect. What did this policy try to do? Who benefited? Who paid, and were they in the room when the decision was made? Students are expected to name the trade-off, argue a position on it, and state the strongest version of the view they reject before attacking it.</p>
+                    </div>
+
+                    <div class="objective-card">
+                        <span class="objective-number">Objective Two</span>
+                        <h3>Policy-oriented: evaluating policy that is currently in force</h3>
+                        <p>I do not teach policy as history. Students work with live material: peace agreement texts, UN Security Council resolutions, congressional budget justifications for security and development assistance, national development plans, human rights reporting, and program evaluations. These are the documents I used as a practitioner, and most undergraduates have never been asked to read one closely.</p>
+                        <p class="in-practice"><strong>In practice:</strong> students select an ongoing policy, reconstruct what it is actually designed to do from the primary documents rather than from press coverage, identify the causal assumptions it depends on, evaluate whether those assumptions are holding against available evidence, and propose a specific alternative with its costs stated honestly.</p>
+                    </div>
+
+                </div>
             </div>
         </section>
 
@@ -390,29 +445,37 @@
                 <div class="philosophy-container">
                     <div class="philosophy-text">
                         <h3>My Approach</h3>
-                        <p>My teaching is fundamentally shaped by my experience as both a practitioner and a scholar. Having worked in active conflict zones and participated in peace negotiations, I am driven by the conviction that political science must be a tool for understanding and improving the human condition. My passion for these subjects, born from direct experience, aims to foster deep engagement and understanding.</p>
-                        <p>Ultimately, my goal is for students to leave my classroom with a new lens for viewing the world—as one student kindly noted, to have their "eyes opened to the subject of global policy issues." This transformation from passive observer to engaged, critical thinker is the most rewarding outcome of my teaching.</p>
+                        <p>My teaching is shaped by my experience as both a practitioner and a scholar. Having worked in active conflict zones and participated in peace negotiations, I am driven by the conviction that political science must be a tool for understanding and improving the human condition. Both of my objectives follow from that conviction. Critical thinking without a real case to test is an exercise; policy analysis without critical thinking is advocacy.</p>
+                        <p>The two objectives also depend on a shared skill, which is the ability to handle evidence. My own research runs on causal inference methods, and I have taught quantitative reasoning to students who arrived certain they were not math people. That prior belief, not the material, is the real obstacle. I address it by starting with questions rather than estimators, and by assigning real data rather than cleaned textbook extracts, because knowing what to do with a messy variable is most of the skill.</p>
+                        <p>Ultimately, my goal is for students to leave my classroom with a new lens for viewing the world. As one student kindly noted, to have their "eyes opened to the subject of global policy issues." That shift from passive observer to engaged, critical analyst is the most rewarding outcome of my teaching, and the best evidence that a course worked is not that students liked it. It is that they can still make the argument six months later.</p>
                     </div>
                     <ul class="philosophy-points">
                         <li>
-                            <svg class="philosophy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                            <svg class="philosophy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.874 15.126c.526.526 1.167.942 1.884 1.224M19.126 15.126c-.526.526-1.167.942-1.884 1.224M12 21a9 9 0 110-18 9 9 0 010 18zM12 9a3 3 0 100-6 3 3 0 000 6z"></path></svg>
                             <div>
-                                <h3>Theory & Practice</h3>
-                                <p>Anchoring abstract concepts in concrete case studies and my professional field experience.</p>
+                                <h3>Critical Thinking</h3>
+                                <p>Crossing theory with real case situations, and using sequential questioning to weigh ethical trade-offs.</p>
                             </div>
                         </li>
                         <li>
-                            <svg class="philosophy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.874 15.126c.526.526 1.167.942 1.884 1.224M19.126 15.126c-.526.526-1.167.942-1.884 1.224M12 21a9 9 0 110-18 9 9 0 010 18zM12 9a3 3 0 100-6 3 3 0 000 6z"></path></svg>
+                            <svg class="philosophy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                             <div>
-                                <h3>Critical Inquiry</h3>
-                                <p>Using sequential questioning to guide students to discover insights and weigh ethical trade-offs.</p>
+                                <h3>Policy Orientation</h3>
+                                <p>Evaluating ongoing policies with official documents and current international cases, and proposing defensible alternatives.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <svg class="philosophy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                            <div>
+                                <h3>Evidence &amp; Methods</h3>
+                                <p>Teaching causal inference in R and Stata with real data, including my own USASSA dataset for undergraduate research.</p>
                             </div>
                         </li>
                         <li>
                             <svg class="philosophy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 19a7 7 0 100-14 7 7 0 000 14z"></path></svg>
                             <div>
                                 <h3>AI for Analysis</h3>
-                                <p>Harnessing AI as a tool to enhance, not replace, the nuanced work of human analysis.</p>
+                                <p>Harnessing AI as a tool to enhance, not replace, the nuanced work of human analysis, with disclosure required and claims checked against primary documents.</p>
                             </div>
                         </li>
                         <li>
@@ -426,15 +489,14 @@
                 </div>
             </div>
         </section>
-
         <section style="padding-top: 0;">
             <div class="container">
                 <h2 class="section-heading">Courses</h2>
-                
+
                 <!-- NEW: Incoming Courses at UST -->
                 <div class="course-group">
                     <h3 class="course-group-title">University of St. Thomas (Incoming Fall 2026)</h3>
-                    
+
                     <div class="card course-card">
                         <div class="course-header">
                             <h3 class="course-title">INST 3352: International Politics</h3>
@@ -443,8 +505,8 @@
                             </div>
                         </div>
                         <p class="course-details">Fall 2026</p>
+                        <p class="course-description">Core theories of international relations tested against contemporary cases, with students evaluating how each framework performs when applied to ongoing conflicts and negotiations.</p>
                     </div>
-
                     <div class="card course-card">
                         <div class="course-header">
                             <h3 class="course-title">INST 3354: International Political Economy</h3>
@@ -453,8 +515,8 @@
                             </div>
                         </div>
                         <p class="course-details">Fall 2026</p>
+                        <p class="course-description">Trade, finance, development, and aid conditionality, with students analyzing current policy instruments through official documents and program evaluations.</p>
                     </div>
-
                     <div class="card course-card">
                         <div class="course-header">
                             <h3 class="course-title">INST 4351: Latin American Economic Development</h3>
@@ -463,9 +525,9 @@
                             </div>
                         </div>
                         <p class="course-details">Fall 2026 (Online - Asynchronous)</p>
+                        <p class="course-description">Development trajectories across the region, examining the interaction of state capacity, violence, and economic policy in shaping outcomes.</p>
                     </div>
                 </div>
-
                 <div class="course-group">
                     <h3 class="course-group-title">UNC-Chapel Hill</h3>
                     <div class="card course-card">
@@ -499,7 +561,6 @@
                         <p class="course-description">Explores theories, actors, institutions, and processes involved in the formulation and implementation of public policy.</p>
                     </div>
                 </div>
-
                 <div class="course-group">
                     <h3 class="course-group-title">Instructor of Record (Colombia)</h3>
                     <div class="card course-card">
@@ -533,22 +594,18 @@
                         <p class="course-description">Introduces foundational concepts in political and law theory, connecting theoretical basis to practical legal frameworks (undergraduate level).</p>
                     </div>
                 </div>
-
             </div>
         </section>
-        
-    </main>
 
+    </main>
     <footer>
         <div class="container" style="padding: 0;">
             <p>&copy; <span id="currentYear"></span> Giovanny Alvarez. All rights reserved.</p>
         </div>
     </footer>
-
     <script>
         // Update footer year dynamically
         document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
-
 </body>
 </html>
